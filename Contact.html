@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contact MSSN IBBUL</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#f5f5f5;
+      color:#222;
+    }
+
+    /* ================= HEADER ================= */
+
+    header{
+      background:darkgreen;
+      color:white;
+      padding:15px 5%;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .logo img{
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      background:white;
+    }
+
+    .logo-text h1{
+      font-size:22px;
+    }
+
+    .logo-text p{
+      font-size:13px;
+      margin-top:5px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      color:white;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:gold;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero{
+      height:60vh;
+
+      background:
+      linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+      url('MSSN_LOGO.png');
+
+      background-size:cover;
+      background-position:center;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      color:white;
+      padding:20px;
+    }
+
+    .hero h2{
+      font-size:55px;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:20px;
+      line-height:1.8;
+      max-width:900px;
+    }
+
+    /* ================= CONTACT SECTION ================= */
+
+    .contact{
+      padding:80px 5%;
+      background:white;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:40px;
+      color:darkgreen;
+      margin-bottom:60px;
+    }
+
+    .contact-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(350px,1fr));
+      gap:40px;
+    }
+
+    /* ================= CONTACT INFO ================= */
+
+    .contact-info{
+      background:#f5f5f5;
+      padding:40px;
+      border-radius:15px;
+      box-shadow:0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    .contact-box{
+      margin-bottom:35px;
+    }
+
+    .contact-box h3{
+      color:darkgreen;
+      margin-bottom:10px;
+      font-size:25px;
+    }
+
+    .contact-box p{
+      line-height:1.9;
+      font-size:17px;
+    }
+
+    /* ================= FORM ================= */
+
+    .form-container{
+      background:#f5f5f5;
+      padding:40px;
+      border-radius:15px;
+      box-shadow:0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    .form-container input,
+    .form-container textarea{
+      width:100%;
+      padding:15px;
+      margin-bottom:20px;
+      border:1px solid #ccc;
+      border-radius:5px;
+      font-size:16px;
+    }
+
+    .form-container button{
+      width:100%;
+      padding:15px;
+      border:none;
+      background:darkgreen;
+      color:white;
+      font-size:18px;
+      border-radius:5px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .form-container button:hover{
+      background:goldenrod;
+      color:black;
+    }
+
+    /* ================= MAP ================= */
+
+    .map{
+      padding:80px 5%;
+    }
+
+    .map-container{
+      width:100%;
+      height:450px;
+      border-radius:15px;
+      overflow:hidden;
+      box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .map-container iframe{
+      width:100%;
+      height:100%;
+      border:0;
+    }
+
+    /* ================= FAQ ================= */
+
+    .faq{
+      padding:80px 5%;
+      background:white;
+    }
+
+    .faq-box{
+      background:#f5f5f5;
+      padding:25px;
+      border-radius:10px;
+      margin-bottom:20px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .faq-box:hover{
+      background:darkgreen;
+      color:white;
+    }
+
+    .faq-box h3{
+      margin-bottom:10px;
+      font-size:22px;
+    }
+
+    .faq-box p{
+      display:none;
+      line-height:1.8;
+      margin-top:15px;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer{
+      background:black;
+      color:white;
+      text-align:center;
+      padding:40px 20px;
+    }
+
+    footer p{
+      margin:10px 0;
+      line-height:1.8;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media(max-width:768px){
+
+      .hero h2{
+        font-size:38px;
+      }
+
+      .hero p{
+        font-size:17px;
+      }
+
+      .section-title{
+        font-size:30px;
+      }
+
+      .nav-links{
+        margin-top:20px;
+      }
+
+      .contact-container{
+        grid-template-columns:1fr;
+      }
+
+    }
+
+    
+.donate-btn{
+position:fixed;
+bottom:25px;
+right:25px;
+background:darkgreen;
+color:white;
+padding:15px 22px;
+border:none;
+border-radius:50px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,.3);
+z-index:9999;
+transition:.3s;
+}
+
+.donate-btn:hover{
+background:green;
+transform:scale(1.05);
+}
+
+.donation-modal{
+display:none;
+position:fixed;
+z-index:10000;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.6);
+}
+
+.donation-content{
+background:white;
+width:90%;
+max-width:420px;
+margin:8% auto;
+padding:30px;
+border-radius:15px;
+text-align:center;
+position:relative;
+animation:popup .3s ease;
+}
+
+@keyframes popup{
+
+from{
+transform:scale(.7);
+opacity:0;
+}
+
+to{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+.close{
+position:absolute;
+top:10px;
+right:18px;
+font-size:28px;
+font-weight:bold;
+cursor:pointer;
+color:red;
+}
+
+.account-box{
+background:#f5f5f5;
+padding:15px;
+margin:20px 0;
+border-radius:10px;
+border-left:5px solid darkgreen;
+}
+
+.copy-btn{
+background:darkgreen;
+color:white;
+border:none;
+padding:12px 18px;
+border-radius:8px;
+cursor:pointer;
+font-size:15px;
+margin-top:15px;
+}
+
+.copy-btn:hover{
+background:green;
+}
+
+
+
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+
+  <header>
+
+    <nav>
+
+      <div class="logo">
+
+        <img src="MSSN_LOGO.png">
+
+        <div class="logo-text">
+          <h1>MSSN IBBUL</h1>
+          <p>2025/2026 Administration</p>
+        </div>
+
+      </div>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="About.html">About</a>
+        <a href="Administration.html">Administration</a>
+        <a href="Programms.html">Programmes</a>
+        <a href="Da'awah week.html">Da'awah Week</a>
+        <a href="Gallery.html">Gallery</a>
+        <a href="Contact.html">Contact</a>
+        
+         <a href="Shurah.html">Shurah</a>
+      </div>
+
+    </nav>
+
+  </header>
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero">
+
+    <div>
+
+      <h2>Contact MSSN IBBUL</h2>
+
+      <p>
+        Reach out to the administration for enquiries,
+        programme collaborations, Da'awah activities
+        and official communication.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ================= CONTACT SECTION ================= -->
+
+  <section class="contact">
+
+    <h2 class="section-title">Get In Touch</h2>
+
+    <div class="contact-container">
+
+      <!-- CONTACT INFO -->
+
+      <div class="contact-info">
+
+        <div class="contact-box">
+
+          <h3>Address</h3>
+
+          <p>
+            MSSN Secretariat <br>
+            Ibrahim Badamasi Babangida University <br>
+            Lapai, Niger State, Nigeria
+          </p>
+
+        </div>
+
+        <div class="contact-box">
+
+          <h3>Phone</h3>
+
+          <p>
+            +234 906 313 9364 <br>
+            +234 814 483 5479
+          </p>
+
+        </div>
+
+        <div class="contact-box">
+
+          <h3>Email</h3>
+
+          <p>
+            mssnibbul@gmail.com
+          </p>
+
+        </div>
+
+        <div class="contact-box">
+
+          <h3>Programme Days</h3>
+
+          <p>
+            Saturday - Sisters Forum <br>
+            Sunday - Weekly Enlightenment
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- FORM -->
+
+      <!--<div class="form-container">
+
+        <form onsubmit="submitForm(event)">
+
+          <input type="text"
+          placeholder="Your Full Name" required>
+
+          <input type="email"
+          placeholder="Your Email Address" required>
+
+          <input type="text"
+          placeholder="Subject" required>
+
+          <textarea rows="6"
+          placeholder="Type Your Message"></textarea>
+
+          <button type="submit">
+            Send Message
+          </button>
+
+        </form>
+
+      </div> -->
+
+    </div> 
+
+  </section>
+
+  <!-- ================= MAP ================= -->
+
+  <section class="map">
+
+    <h2 class="section-title">Our Location</h2>
+
+    <div class="map-container">
+
+      <iframe
+      src="https://maps.google.casi%20Babangida%20University&t=&z=13&ie=UTF8&iwloc=&output=embed">
+      </iframe>
+
+    </div>
+
+  </section>
+
+  <!-- ================= FAQ ================= -->
+
+  <section class="faq">
+
+    <h2 class="section-title">Frequently Asked Questions</h2>
+
+    <!-- FAQ 1 -->
+
+    <div class="faq-box" onclick="toggleFaq(this)">
+
+      <h3>
+        How can I participate in MSSN programmes?
+      </h3>
+
+      <p>
+        You can participate by attending weekly programmes,
+        joining committees and following announcements from
+        the administration.
+      </p>
+
+    </div>
+
+    <!-- FAQ 2 -->
+
+    <div class="faq-box" onclick="toggleFaq(this)">
+
+      <h3>
+        Can external organizations collaborate with MSSN?
+      </h3>
+
+      <p>
+        Yes. External Islamic organizations and schools
+        can officially contact the administration for partnerships.
+      </p>
+
+    </div>
+
+    <!-- FAQ 3 -->
+
+    <div class="faq-box" onclick="toggleFaq(this)">
+
+      <h3>
+        How do I get updates about Da'awah Week?
+      </h3>
+
+      <p>
+        Updates are posted on the official website,
+        social media pages and MSSN communication platforms.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+
+
+ <button class="donate-btn" onclick="openDonation()">
+
+💚 Donate
+
+</button>
+
+<!-- Donation Popup -->
+
+<div id="donationModal" class="donation-modal">
+
+<div class="donation-content">
+
+<span class="close" onclick="closeDonation()">&times;</span>
+
+<h2>Support MSSN IBBUL</h2>
+
+<p>
+Your donation supports Da'awah activities,
+student welfare and Islamic programmes.
+</p>
+
+<div class="account-box">
+
+<p><strong>Bank:</strong> Jaiz Bank</p>
+
+<p><strong>Account Name:</strong></p>
+
+<p>MSSN IBBUL Branch</p>
+
+<p><strong>Account Number:</strong>IBBUL-MICROFINANCE</p>
+
+
+
+
+<p><strong>Bank:</strong></p>
+
+
+
+<p>MSSN IBBUL MICROFINANCE</p>
+<h3 id="accountNumber"></h3>
+<p><strong>Account Number:</strong>1100005137</p>
+
+</h3>
+
+</div>
+
+<button class="copy-btn"
+onclick="copyAccount()">
+
+Copy Account Number
+
+</button>
+
+</div>
+
+</div>
+
+
+  <footer>
+
+    <h2>MSSN IBBUL</h2>
+
+    <p>
+      Muslim Students Society of Nigeria <br>
+      Ibrahim Badamasi Babangida University Chapter
+    </p>
+
+    <p>
+      2025/2026 Administration Session
+    </p>
+
+    <p>
+      © All Rights Reserved
+    </p>
+
+  </footer>
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    // ================= CONTACT FORM =================
+
+    function submitForm(event){
+
+      event.preventDefault();
+
+      alert("Message Sent Successfully");
+
+    }
+
+    // ================= FAQ TOGGLE =================
+
+    function toggleFaq(element){
+
+      let paragraph = element.querySelector("p");
+
+      if(paragraph.style.display === "block"){
+
+        paragraph.style.display = "none";
+
+      }
+
+      else{
+
+        paragraph.style.display = "block";
+
+      }
+
+    }
+
+
+    function openDonation(){
+
+document.getElementById("donationModal").style.display="block";
+
+}
+
+function closeDonation(){
+
+document.getElementById("donationModal").style.display="none";
+
+}
+
+window.onclick=function(event){
+
+let modal=document.getElementById("donationModal");
+
+if(event.target==modal){
+
+modal.style.display="none";
+
+}
+
+}
+
+function copyAccount(){
+
+let account=
+document.getElementById("accountNumber").innerText;
+
+navigator.clipboard.writeText(account);
+
+alert("Account number copied successfully!");
+
+}
+
+  </script>
+
+</body>
+</html>
