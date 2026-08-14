@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MSSN IBBUL Shurah & Transition</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#f5f5f5;
+      color:#222;
+    }
+
+    /* ================= HEADER ================= */
+
+    header{
+      background:darkgreen;
+      color:white;
+      padding:15px 5%;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .logo img{
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      background:white;
+    }
+
+    .logo-text h1{
+      font-size:22px;
+    }
+
+    .logo-text p{
+      font-size:13px;
+      margin-top:5px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      color:white;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:gold;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero{
+      height:70vh;
+
+      background:
+      linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+      url('MSSN_LOGO.png');
+
+      background-size:cover;
+      background-position:center;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      color:white;
+      padding:20px;
+    }
+
+    .hero h2{
+      font-size:55px;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:20px;
+      line-height:1.8;
+      max-width:900px;
+    }
+
+    /* ================= SECTION TITLE ================= */
+
+    .section-title{
+      text-align:center;
+      font-size:40px;
+      color:darkgreen;
+      margin-bottom:60px;
+    }
+
+    /* ================= SHURAH INFO ================= */
+
+    .info{
+      padding:80px 5%;
+      background:white;
+    }
+
+    .info-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+      gap:30px;
+    }
+
+    .info-card{
+      background:#f5f5f5;
+      padding:35px;
+      border-radius:15px;
+      border-left:5px solid darkgreen;
+      transition:0.4s;
+    }
+
+    .info-card:hover{
+      transform:translateY(-10px);
+      background:darkgreen;
+      color:white;
+    }
+
+    .info-card h3{
+      margin-bottom:20px;
+      font-size:28px;
+    }
+
+    .info-card p{
+      line-height:1.9;
+    }
+
+    /* ================= TIMELINE ================= */
+
+    .timeline{
+      padding:80px 5%;
+    }
+
+    .timeline-container{
+      max-width:900px;
+      margin:auto;
+    }
+
+    .timeline-box{
+      background:white;
+      padding:30px;
+      border-radius:15px;
+      margin-bottom:25px;
+      border-left:6px solid darkgreen;
+      box-shadow:0 5px 10px rgba(0,0,0,0.1);
+      transition:0.4s;
+    }
+
+    .timeline-box:hover{
+      transform:scale(1.02);
+    }
+
+    .timeline-box h3{
+      color:darkgreen;
+      margin-bottom:15px;
+      font-size:28px;
+    }
+
+    .timeline-box p{
+      line-height:1.9;
+    }
+
+    /* ================= FORM ================= */
+
+    .registration{
+      padding:80px 5%;
+      background:white;
+    }
+
+    .form-container{
+      max-width:700px;
+      margin:auto;
+      background:#f5f5f5;
+      padding:40px;
+      border-radius:15px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .form-container input,
+    .form-container textarea,
+    .form-container select{
+      width:100%;
+      padding:15px;
+      margin-bottom:20px;
+      border:1px solid #ccc;
+      border-radius:5px;
+      font-size:16px;
+    }
+
+    .form-container button{
+      width:100%;
+      padding:15px;
+      border:none;
+      background:darkgreen;
+      color:white;
+      font-size:18px;
+      border-radius:5px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .form-container button:hover{
+      background:goldenrod;
+      color:black;
+    }
+
+    /* ================= COUNTDOWN ================= */
+
+    .countdown{
+      padding:80px 5%;
+      text-align:center;
+      background:darkgreen;
+      color:white;
+    }
+
+    .countdown h2{
+      font-size:40px;
+      margin-bottom:30px;
+    }
+
+    #timer{
+      font-size:40px;
+      color:gold;
+      font-weight:bold;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer{
+      background:black;
+      color:white;
+      text-align:center;
+      padding:40px 20px;
+    }
+
+    footer p{
+      margin:10px 0;
+      line-height:1.8;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media(max-width:768px){
+
+      .hero h2{
+        font-size:38px;
+      }
+
+      .hero p{
+        font-size:17px;
+      }
+
+      .section-title{
+        font-size:30px;
+      }
+
+      .nav-links{
+        margin-top:20px;
+      }
+
+      #timer{
+        font-size:28px;
+      }
+
+    }
+
+    
+.donate-btn{
+position:fixed;
+bottom:25px;
+right:25px;
+background:darkgreen;
+color:white;
+padding:15px 22px;
+border:none;
+border-radius:50px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,.3);
+z-index:9999;
+transition:.3s;
+}
+
+.donate-btn:hover{
+background:green;
+transform:scale(1.05);
+}
+
+.donation-modal{
+display:none;
+position:fixed;
+z-index:10000;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.6);
+}
+
+.donation-content{
+background:white;
+width:90%;
+max-width:420px;
+margin:8% auto;
+padding:30px;
+border-radius:15px;
+text-align:center;
+position:relative;
+animation:popup .3s ease;
+}
+
+@keyframes popup{
+
+from{
+transform:scale(.7);
+opacity:0;
+}
+
+to{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+.close{
+position:absolute;
+top:10px;
+right:18px;
+font-size:28px;
+font-weight:bold;
+cursor:pointer;
+color:red;
+}
+
+.account-box{
+background:#f5f5f5;
+padding:15px;
+margin:20px 0;
+border-radius:10px;
+border-left:5px solid darkgreen;
+}
+
+.copy-btn{
+background:darkgreen;
+color:white;
+border:none;
+padding:12px 18px;
+border-radius:8px;
+cursor:pointer;
+font-size:15px;
+margin-top:15px;
+}
+
+.copy-btn:hover{
+background:green;
+}
+
+
+
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+
+  <header>
+
+    <nav>
+
+      <div class="logo">
+
+        <img src="MSSN_LOGO.png">
+
+        <div class="logo-text">
+          <h1>MSSN IBBUL</h1>
+          <p>2025/2026 Administration</p>
+        </div>
+
+      </div>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="About.html">About</a>
+        <a href="Administration.html">Administration</a>
+        <a href="Programms.html">Programmes</a>
+        <a href="Da'awah week.html">Da'awah Week</a>
+        <a href="Gallery.html">Gallery</a>
+        <a href="Contact.html">Contact</a>
+        <!-- <a href="Executives.html">Executives</a> -->
+      </div>
+
+    </nav>
+
+  </header>
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero">
+
+    <div>
+
+      <h2>Shurah & Transition</h2>
+
+      <p>
+        A structured and organized transition process for selecting
+        and preparing the next administration of MSSN IBBUL.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ================= SHURAH INFO ================= -->
+
+  <section class="info">
+
+    <h2 class="section-title">Shurah Information</h2>
+
+    <div class="info-container">
+
+      <div class="info-card">
+
+        <h3>Purpose</h3>
+
+        <p>
+          The Shurah process aims to identify qualified,
+          responsible and dedicated Muslim students capable
+          of leading the society effectively.
+        </p>
+
+      </div>
+
+      <div class="info-card">
+
+        <h3>Screening Process</h3>
+
+        <p>
+          Screening will be conducted physically through interviews,
+          consultations and assessment by the screening committee.
+        </p>
+
+      </div>
+
+      <div class="info-card">
+
+        <h3>Eligibility</h3>
+
+        <p>
+          Candidates must possess good character, commitment to Islam,
+          active participation in MSSN programmes and leadership qualities.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ================= TIMELINE ================= -->
+
+  <section class="timeline">
+
+    <h2 class="section-title">Transition Timeline</h2>
+
+    <div class="timeline-container">
+
+      <div class="timeline-box">
+
+        <h3>Week 1 - Announcement</h3>
+
+        <p>
+          Official announcement of Shurah exercise,
+          available positions and screening guidelines.
+        </p>
+
+      </div>
+
+      <div class="timeline-box">
+
+        <h3>Week 2 - Registration</h3>
+
+        <p>
+          Submission of candidate information and
+          nomination details through the official platform.
+        </p>
+
+      </div>
+
+      <div class="timeline-box">
+
+        <h3>Week 3 - Physical Screening</h3>
+
+        <p>
+          Candidates appear before the screening committee
+          for physical interviews and consultations.
+        </p>
+
+      </div>
+
+      <div class="timeline-box">
+
+        <h3>Week 4 - Walimah & Handover</h3>
+
+        <p>
+          Official handing over ceremony and Walimah
+          programme for outgoing and incoming executives.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ================= REGISTRATION ================= -->
+
+  <section class="registration">
+
+    <h2 class="section-title">Candidate Registration</h2>
+
+    <div class="form-container">
+
+      <form onsubmit="submitForm(event)">
+
+        <input type="text" placeholder="Full Name" required>
+
+        <input type="text" placeholder="Faculty / Department" required>
+
+        <!-- <input type="text" placeholder="Level" required> -->
+
+
+
+<select  id="level" required>
+
+<option value="">Select Level</option>
+
+<option value="">100 level</option>
+<option value="">200 level</option>
+<option value="">300 level</option>
+<option value="">400 level</option>
+<option value="">500 level</option>
+
+
+</select>
+
+<small>enter an 11-digit phone number</small>
+
+<label for="phone">Phone Number</label>
+
+<input
+type="text"
+id="phone"
+placeholder="08012345678"
+oninput="validatePhone()">
+
+<p id="phoneError" style="color:red;"></p>
+
+
+<!-- 
+<input type="tel" id="phone"
+ name="phone" pattern="[0-9]{11}"
+  placeholder=" Phone number:070 000 000 00" required> -->
+
+        <select required>
+
+          <option value="">Select Position</option>
+
+          <option>Masjid committe</option>
+
+          <option>Finance</option>
+
+          <option>Organizer</option>
+
+          <option>PRO</option>
+
+          <option>Treasurer</option>
+
+          <option>Welafare</option>
+
+           <option>Junndullah</option>
+
+            <option>Media</option>
+
+             <option>Academics</option>
+
+              <option>Cordinator</option>
+
+               <option>Da'awah</option>
+
+                <option>Others</option>
+
+        </select>
+
+        <textarea rows="5"
+        placeholder="Why do you want to serve MSSN?"></textarea>
+
+        <button type="submit">
+        Apply for Screening  
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+  <!-- ================= COUNTDOWN ================= -->
+
+  <section class="countdown">
+
+    <h2>Countdown To Handover Ceremony</h2>
+
+    <div id="timer">Loading...</div>
+
+  </section>
+
+ <button class="donate-btn" onclick="openDonation()">
+
+💚 Donate
+
+</button>
+
+<!-- Donation Popup -->
+
+<div id="donationModal" class="donation-modal">
+
+<div class="donation-content">
+
+<span class="close" onclick="closeDonation()">&times;</span>
+
+<h2>Support MSSN IBBUL</h2>
+
+<p>
+Your donation supports Da'awah activities,
+student welfare and Islamic programmes.
+</p>
+
+<div class="account-box">
+
+
+<p><strong>Bank:</strong> Jaiz Bank</p>
+<p><strong>Account Name:</strong></p>
+<p>MSSN IBBUL Branch</p>
+<p><strong>Account Number:</strong>IBBUL-MICROFINANCE</p>
+<p><strong>Bank:</strong></p>
+<p>MSSN IBBUL MICROFINANCE</p>
+<h3 id="accountNumber"></h3>
+<p><strong>Account Number:</strong>1100005137</p>
+
+</h3>
+
+</div>
+
+<button class="copy-btn"
+onclick="copyAccount()">
+
+Copy Account Number
+
+</button>
+
+</div>
+
+</div>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <h2>MSSN IBBUL</h2>
+
+    <p>
+      Muslim Students Society of Nigeria <br>
+      Ibrahim Badamasi Babangida University Chapter
+    </p>
+
+    <p>
+      2025/2026 Administration Session
+    </p>
+
+    <p>
+      © All Rights Reserved
+    </p>
+
+  </footer>
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    // ================= FORM =================
+
+
+
+
+
+
+function validatePhone(){
+
+let phone =
+document.getElementById("phone").value;
+
+let error =
+document.getElementById("phoneError");
+
+if(/[^0-9]/.test(phone)){
+
+error.innerHTML =
+"Only numbers are allowed.";
+
+}else{
+
+error.innerHTML = "";
+
+}
+
+}
+
+
+
+
+
+
+    function submitForm(event){
+
+      event.preventDefault();
+
+      alert("Application Submitted Successfully");
+
+    }
+
+    // ================= COUNTDOWN =================
+
+    let countdownDate =
+    new Date("Aug 30, 2026 00:00:00").getTime();
+
+    let timer = setInterval(function(){
+
+      let now = new Date().getTime();
+
+      let distance = countdownDate - now;
+
+      let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+      let hours = Math.floor((distance %
+      (1000 * 60 * 60 * 24))
+      / (1000 * 60 * 60));
+
+      let minutes = Math.floor((distance %
+      (1000 * 60 * 60))
+      / (1000 * 60));
+
+      let seconds = Math.floor((distance %
+      (1000 * 60))
+      / 1000);
+
+      document.getElementById("timer").innerHTML =
+      days + "d : " +
+      hours + "h : " +
+      minutes + "m : " +
+      seconds + "s";
+
+      if(distance < 0){
+
+        clearInterval(timer);
+
+        document.getElementById("timer").innerHTML =
+        "Handover Ceremony Has Started";
+
+      }
+
+    },1000);
+
+    function openDonation(){
+
+document.getElementById("donationModal").style.display="block";
+
+}
+
+function closeDonation(){
+
+document.getElementById("donationModal").style.display="none";
+
+}
+
+window.onclick=function(event){
+
+let modal=document.getElementById("donationModal");
+
+if(event.target==modal){
+
+modal.style.display="none";
+
+}
+
+}
+
+function copyAccount(){
+
+let account=
+document.getElementById("accountNumber").innerText;
+
+navigator.clipboard.writeText(account);
+
+alert("Account number copied successfully!");
+
+}
+
+  </script>
+
+</body>
+</html>
+
