@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MSSN IBBUL Gallery</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#f5f5f5;
+      color:#222;
+    }
+
+    /* ================= HEADER ================= */
+
+    header{
+      background:darkgreen;
+      color:white;
+      padding:15px 5%;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .logo img{
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      background:white;
+    }
+
+    .logo-text h1{
+      font-size:22px;
+    }
+
+    .logo-text p{
+      font-size:13px;
+      margin-top:5px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      color:white;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:gold;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero{
+      height:60vh;
+
+      background:
+      linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+      url('MSSN_LOGO.png');
+
+      background-size:cover;
+      background-position:center;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      color:white;
+      padding:20px;
+    }
+
+    .hero h2{
+      font-size:55px;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:20px;
+      line-height:1.8;
+    }
+
+    /* ================= FILTER BUTTONS ================= */
+
+    .filter-section{
+      padding:50px 5%;
+      text-align:center;
+      background:white;
+    }
+
+    .filter-btn{
+      padding:12px 25px;
+      margin:10px;
+      border:none;
+      background:darkgreen;
+      color:white;
+      border-radius:5px;
+      cursor:pointer;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .filter-btn:hover{
+      background:goldenrod;
+      color:black;
+    }
+
+    /* ================= GALLERY ================= */
+
+    .gallery{
+      padding:80px 5%;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:40px;
+      color:darkgreen;
+      margin-bottom:60px;
+    }
+
+    .gallery-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .gallery-item{
+      position:relative;
+      overflow:hidden;
+      border-radius:15px;
+      cursor:pointer;
+      transition:0.4s;
+    }
+
+    .gallery-item img{
+      width:100%;
+      height:300px;
+      object-fit:cover;
+      transition:0.5s;
+    }
+
+    .gallery-item:hover img{
+      transform:scale(1.1);
+    }
+
+    .overlay{
+      position:absolute;
+      bottom:0;
+      width:100%;
+      background:rgba(0,0,0,0.7);
+      color:white;
+      padding:20px;
+      text-align:center;
+    }
+
+    /* ================= LIGHTBOX ================= */
+
+    .lightbox{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.9);
+      display:none;
+      justify-content:center;
+      align-items:center;
+      z-index:3000;
+    }
+
+    .lightbox img{
+      width:80%;
+      max-width:800px;
+      border-radius:10px;
+    }
+
+    .close-btn{
+      position:absolute;
+      top:30px;
+      right:40px;
+      color:white;
+      font-size:40px;
+      cursor:pointer;
+    }
+
+    /* ================= VIDEO SECTION ================= */
+
+    .videos{
+      padding:80px 5%;
+      background:white;
+    }
+
+    .video-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+      gap:30px;
+    }
+
+    .video-card{
+      background:#f5f5f5;
+      border-radius:15px;
+      overflow:hidden;
+      box-shadow:0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    .video-card video{
+      width:100%;
+    }
+
+    .video-content{
+      padding:20px;
+    }
+
+    .video-content h3{
+      color:darkgreen;
+      margin-bottom:10px;
+    }
+
+    .video-content p{
+      line-height:1.7;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer{
+      background:black;
+      color:white;
+      text-align:center;
+      padding:40px 20px;
+    }
+
+    footer p{
+      margin:10px 0;
+      line-height:1.8;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media(max-width:768px){
+
+      .hero h2{
+        font-size:38px;
+      }
+
+      .hero p{
+        font-size:17px;
+      }
+
+      .section-title{
+        font-size:30px;
+      }
+
+      .nav-links{
+        margin-top:20px;
+      }
+
+      .lightbox img{
+        width:95%;
+      }
+
+    }
+
+    
+.donate-btn{
+position:fixed;
+bottom:25px;
+right:25px;
+background:darkgreen;
+color:white;
+padding:15px 22px;
+border:none;
+border-radius:50px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,.3);
+z-index:9999;
+transition:.3s;
+}
+
+.donate-btn:hover{
+background:green;
+transform:scale(1.05);
+}
+
+.donation-modal{
+display:none;
+position:fixed;
+z-index:10000;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.6);
+}
+
+.donation-content{
+background:white;
+width:90%;
+max-width:420px;
+margin:8% auto;
+padding:30px;
+border-radius:15px;
+text-align:center;
+position:relative;
+animation:popup .3s ease;
+}
+
+@keyframes popup{
+
+from{
+transform:scale(.7);
+opacity:0;
+}
+
+to{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+.close{
+position:absolute;
+top:10px;
+right:18px;
+font-size:28px;
+font-weight:bold;
+cursor:pointer;
+color:red;
+}
+
+.account-box{
+background:#f5f5f5;
+padding:15px;
+margin:20px 0;
+border-radius:10px;
+border-left:5px solid darkgreen;
+}
+
+.copy-btn{
+background:darkgreen;
+color:white;
+border:none;
+padding:12px 18px;
+border-radius:8px;
+cursor:pointer;
+font-size:15px;
+margin-top:15px;
+}
+
+.copy-btn:hover{
+background:green;
+}
+
+
+
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+
+  <header>
+
+    <nav>
+
+      <div class="logo">
+
+        <img src="MSSN_LOGO.png">
+
+        <div class="logo-text">
+          <h1>MSSN IBBUL</h1>
+          <p>2025/2026 Administration</p>
+        </div>
+
+      </div>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="About.html">About</a>
+        <a href="Administration.html">Administration</a>
+        <a href="Programms.html">Programmes</a>
+        <a href="Da'awah week.html">Da'awah Week</a>
+        <a href="Gallery.html">Gallery</a>
+        <a href="Contact.html">Contact</a>
+        <!-- <a href="Executives.html">Executives</a> -->
+         <a href="Shurah.html">Shurah</a>
+      </div>
+
+    </nav>
+
+  </header>
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero">
+
+    <div>
+
+      <h2>Media Gallery</h2>
+
+      <p>
+        Explore pictures and videos from lectures,
+        Da'awah activities, weekly programmes and special events.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ================= FILTER BUTTONS ================= -->
+
+  <section class="filter-section">
+
+    <button class="filter-btn" onclick="filterImages('all')">All</button>
+
+    <button class="filter-btn" onclick="filterImages('lecture')">Lectures</button>
+
+    <button class="filter-btn" onclick="filterImages('dawah')">Da'awah Week</button>
+
+    <button class="filter-btn" onclick="filterImages('forum')">Sisters Forum</button>
+
+  </section>
+
+  <!-- ================= GALLERY ================= -->
+
+  <section class="gallery">
+
+    <h2 class="section-title">Photo Gallery</h2>
+
+    <div class="gallery-container">
+
+      <!-- IMAGE 1 -->
+
+      <div class="gallery-item lecture">
+
+        <img src="WEEKLY ENL 1.jpg"
+        onclick="openLightbox(this.src)">
+
+        <div class="overlay">
+          Weekly Lecture
+        </div>
+
+      </div>
+
+      <!-- IMAGE 2 -->
+
+      <div class="gallery-item dawah">
+
+        <img src="WEEK MSSN.jpg"
+        onclick="openLightbox(this.src)">
+
+        <div class="overlay">
+          Da'awah Week
+        </div>
+
+      </div>
+
+      <!-- IMAGE 3 -->
+
+      <div class="gallery-item forum">
+
+        <img src="sisters forum.jpg"
+        onclick="openLightbox(this.src)">
+
+        <div class="overlay">
+          Sisters Forum
+        </div>
+
+      </div>
+
+      <!-- IMAGE 4 -->
+
+      <div class="gallery-item lecture">
+
+        <img src="mssn week 5.jpg"
+        onclick="openLightbox(this.src)">
+
+        <div class="overlay">
+          Islamic Seminar
+        </div>
+
+      </div>
+
+      <!-- IMAGE 5 -->
+
+      <div class="gallery-item dawah">
+
+        <img src="mssn week 8.jpg"
+        onclick="openLightbox(this.src)">
+
+        <div class="overlay">
+          Outreach Programme
+        </div>
+
+      </div>
+
+      <!-- IMAGE 6 -->
+
+      <div class="gallery-item forum">
+
+        <img src="sisters forum.jpg"
+        onclick="openLightbox(this.src)">
+
+        <div class="overlay">
+          Student Gathering
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ================= LIGHTBOX ================= -->
+
+  <div class="lightbox" id="lightbox">
+
+    <span class="close-btn" onclick="closeLightbox()">&times;</span>
+
+    <img id="lightbox-img">
+
+  </div>
+
+  <!-- ================= VIDEOS ================= -->
+
+  <section class="videos">
+
+    <h2 class="section-title">Video Highlights</h2>
+
+    <div class="video-container">
+
+      <!-- VIDEO 1 -->
+
+      <div class="video-card">
+
+        <video controls>
+          <source src="MSSN 2.mp4" type="video/mp4">
+        </video>
+
+        <div class="video-content">
+
+          <h3>Weekly Enlightenment</h3>
+
+          <p>
+            Highlights from our impactful weekly enlightenment programme.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- VIDEO 2 -->
+
+      <div class="video-card">
+
+        <video controls>
+          <source src="MSSN 3.mp4" type="video/mp4">
+        </video>
+
+        <div class="video-content">
+
+          <h3>Da'awah Week Activities</h3>
+
+          <p>
+            Watch memorable moments from Da'awah Week programmes.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+ <button class="donate-btn" onclick="openDonation()">
+
+💚 Donate
+
+</button>
+
+<!-- Donation Popup -->
+
+<div id="donationModal" class="donation-modal">
+
+<div class="donation-content">
+
+<span class="close" onclick="closeDonation()">&times;</span>
+
+<h2>Support MSSN IBBUL</h2>
+
+<p>
+Your donation supports Da'awah activities,
+student welfare and Islamic programmes.
+</p>
+
+<div class="account-box">
+
+
+<p><strong>Bank:</strong> Jaiz Bank</p>
+<p><strong>Account Name:</strong></p>
+<p>MSSN IBBUL Branch</p>
+<p><strong>Account Number:</strong>IBBUL-MICROFINANCE</p>
+<p><strong>Bank:</strong></p>
+<p>MSSN IBBUL MICROFINANCE</p>
+<h3 id="accountNumber"></h3>
+<p><strong>Account Number:</strong>1100005137</p>
+
+</h3>
+</div>
+
+<button class="copy-btn"
+onclick="copyAccount()">
+
+Copy Account Number
+
+</button>
+
+</div>
+
+</div>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <h2>MSSN IBBUL</h2>
+
+    <p>
+      Muslim Students Society of Nigeria <br>
+      Ibrahim Badamasi Babangida University Chapter
+    </p>
+
+    <p>
+      2025/2026 Administration Session
+    </p>
+
+    <p>
+      © All Rights Reserved
+    </p>
+
+  </footer>
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    // ================= LIGHTBOX =================
+
+    function openLightbox(src){
+
+      document.getElementById("lightbox").style.display = "flex";
+
+      document.getElementById("lightbox-img").src = src;
+
+    }
+
+    function closeLightbox(){
+
+      document.getElementById("lightbox").style.display = "none";
+
+    }
+
+    // ================= FILTER =================
+
+    function filterImages(category){
+
+      let items = document.querySelectorAll(".gallery-item");
+
+      items.forEach(function(item){
+
+        if(category === "all"){
+
+          item.style.display = "block";
+
+        }
+
+        else if(item.classList.contains(category)){
+
+          item.style.display = "block";
+
+        }
+
+        else{
+
+          item.style.display = "none";
+
+        }
+
+      });
+
+    }
+
+function openDonation(){
+
+document.getElementById("donationModal").style.display="block";
+
+}
+
+function closeDonation(){
+
+document.getElementById("donationModal").style.display="none";
+
+}
+
+window.onclick=function(event){
+
+let modal=document.getElementById("donationModal");
+
+if(event.target==modal){
+
+modal.style.display="none";
+
+}
+
+}
+
+function copyAccount(){
+
+let account=
+document.getElementById("accountNumber").innerText;
+
+navigator.clipboard.writeText(account);
+
+alert("Account number copied successfully!");
+
+}
+
+  </script>
+
+</body>
+</html>
+
+
+
+
