@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MSSN IBBUL Official Website</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#f5f5f5;
+      color:#222;
+    }
+
+    /* ================= NAVBAR ================= */
+
+    header{
+      background:darkgreen;
+      color:white;
+      padding:15px 5%;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .logo-section{
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .logo-section img{
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      background:white;
+    }
+
+    .logo-text h1{
+      font-size:22px;
+    }
+
+    .logo-text p{
+      font-size:13px;
+      margin-top:4px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:white;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:gold;
+    }
+
+    /* ================= HERO SECTION ================= */
+
+    .hero{
+      height:90vh;
+      background:
+      linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+      url(MSSN_LOGO.png);
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      color:white;
+      padding:20px;
+    }
+
+    .hero-content h2{
+      font-size:55px;
+      margin-bottom:20px;
+    }
+
+    .hero-content p{
+      font-size:20px;
+      margin-bottom:30px;
+      line-height:1.6;
+    }
+
+    .hero-content button{
+      padding:15px 35px;
+      border:none;
+      background:gold;
+      color:black;
+      font-size:18px;
+      border-radius:5px;
+      cursor:pointer;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .hero-content button:hover{
+      background:white;
+    }
+
+    /* ================= WELCOME SECTION ================= */
+
+    .welcome{
+      padding:70px 5%;
+      background:white;
+      text-align:center;
+    }
+
+    .welcome h2{
+      color:darkgreen;
+      font-size:38px;
+      margin-bottom:20px;
+    }
+
+    .welcome p{
+      font-size:18px;
+      line-height:1.8;
+      max-width:900px;
+      margin:auto;
+    }
+
+    /* ================= PROGRAMMES ================= */
+
+    .programmes{
+      padding:70px 5%;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:40px;
+      color:darkgreen;
+      margin-bottom:50px;
+    }
+
+    .programme-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .programme-card{
+      background:white;
+      border-radius:10px;
+      overflow:hidden;
+      box-shadow:0 5px 10px rgba(0,0,0,0.1);
+      transition:0.4s;
+    }
+
+    .programme-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .programme-card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .programme-content{
+      padding:20px;
+    }
+
+    .programme-content h3{
+      color:darkgreen;
+      margin-bottom:15px;
+    }
+
+    .programme-content p{
+      line-height:1.7;
+    }
+
+    /* ================= COUNTDOWN ================= */
+
+    .countdown{
+      background:darkgreen;
+      color:white;
+      text-align:center;
+      padding:70px 20px;
+    }
+
+    .countdown h2{
+      font-size:40px;
+      margin-bottom:30px;
+    }
+
+    #timer{
+      font-size:35px;
+      font-weight:bold;
+      color:gold;
+    }
+
+    /* ================= GALLERY ================= */
+
+    .gallery{
+      padding:70px 5%;
+      background:white;
+    }
+
+    .gallery-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+      gap:20px;
+    }
+
+    .gallery-container img{
+      width:100%;
+      height:250px;
+      object-fit:cover;
+      border-radius:10px;
+      transition:0.4s;
+    }
+
+    .gallery-container img:hover{
+      transform:scale(1.05);
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer{
+      background:black;
+      color:white;
+      text-align:center;
+      padding:30px 20px;
+    }
+
+    footer p{
+      margin:10px 0;
+      line-height:1.8;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media(max-width:768px){
+
+      .hero-content h2{
+        font-size:35px;
+      }
+
+      .hero-content p{
+        font-size:17px;
+      }
+
+      .nav-links{
+        margin-top:20px;
+      }
+
+      .section-title{
+        font-size:30px;
+      }
+
+    }
+
+
+
+
+.donate-btn{
+position:fixed;
+bottom:25px;
+right:25px;
+background:darkgreen;
+color:white;
+padding:15px 22px;
+border:none;
+border-radius:50px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,.3);
+z-index:9999;
+transition:.3s;
+}
+
+.donate-btn:hover{
+background:green;
+transform:scale(1.05);
+}
+
+.donation-modal{
+display:none;
+position:fixed;
+z-index:10000;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.6);
+}
+
+.donation-content{
+background:white;
+width:90%;
+max-width:420px;
+margin:8% auto;
+padding:30px;
+border-radius:15px;
+text-align:center;
+position:relative;
+animation:popup .3s ease;
+}
+
+@keyframes popup{
+
+from{
+transform:scale(.7);
+opacity:0;
+}
+
+to{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+.close{
+position:absolute;
+top:10px;
+right:18px;
+font-size:28px;
+font-weight:bold;
+cursor:pointer;
+color:red;
+}
+
+.account-box{
+background:#f5f5f5;
+padding:15px;
+margin:20px 0;
+border-radius:10px;
+border-left:5px solid darkgreen;
+}
+
+.copy-btn{
+background:darkgreen;
+color:white;
+border:none;
+padding:12px 18px;
+border-radius:8px;
+cursor:pointer;
+font-size:15px;
+margin-top:15px;
+}
+
+.copy-btn:hover{
+background:green;
+}
+
+
+
+
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+
+  <header>
+
+    <nav>
+
+      <div class="logo-section">
+
+        <img src="MSSN_LOGO.png">
+
+        <div class="logo-text">
+          <h1>MSSN IBBUL</h1>
+          <p>2025/2026 Administration</p>
+        </div>
+
+      </div>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="About.html">About</a>
+        <a href="Administration.html">Administration</a>
+        <a href="Programms.html">Programmes</a>
+        <a href="Da'awah week.html">Da'awah Week</a>
+        <a href="Gallery.html">Gallery</a>
+        <a href="Contact.html">Contact</a>
+        <!-- <a href="Executives.html">Executives</a> -->
+         <a href="Shurah.html">Shurah</a>
+      </div>
+
+    </nav>
+
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h2>Welcome To MSSN IBBUL</h2>
+
+      <p>
+        Muslim Students Society of Nigeria <br>
+        Ibrahim Badamasi Babangida University Chapter <br>
+        2025/2026 Administrative Session
+      </p>
+
+      <button onclick="showMessage()"><a href="Programms.html">Explore More</a></button>
+
+    </div>
+
+  </section>
+
+  <!-- ================= WELCOME SECTION ================= -->
+
+  <section class="welcome">
+
+    <h2>About The Administration</h2>
+
+    <p>
+      This website serves as the official digital platform of the MSSN IBBUL
+      2025/2026 administration. It contains information about our programmes,
+      Da'awah activities, weekly enlightenment, sisters forum, media activities,
+      leadership transition, and all Islamic engagements within and outside the campus.
+    </p>
+
+  </section>
+
+  <!-- ================= PROGRAMMES SECTION ================= -->
+
+  <section class="programmes">
+
+    <h2 class="section-title">Our Major Programmes</h2>
+
+    <div class="programme-container">
+
+      <div class="programme-card">
+
+        <img src="weekly enl fliers.jpg">
+
+        <div class="programme-content">
+          <h3>Weekly Enlightenment</h3>
+          <p>
+            Weekly Islamic lectures and discussions held every Sunday
+            for spiritual and academic development.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="programme-card">
+
+        <img src="sisters forum.jpg">
+
+        <div class="programme-content">
+          <h3>Sisters Forum</h3>
+          <p>
+            Special programmes organized every Saturday for sisters,
+            focusing on Islamic morals and personal development.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="programme-card">
+
+        <img src="mssn week 8.jpg">
+
+        <div class="programme-content">
+          <h3>Da'awah Week</h3>
+          <p>
+            A full week of Islamic activities including debates,
+            humanitarian visitation, lectures, quiz competitions and more.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ================= COUNTDOWN ================= -->
+
+  <section class="countdown">
+
+    <h2>Countdown To Da'awah Week</h2>
+
+    <div id="timer">Loading...</div>
+
+  </section>
+
+  <!-- ================= GALLERY ================= -->
+
+  <section class="gallery">
+
+    <h2 class="section-title">Media Gallery</h2>
+
+    <div class="gallery-container">
+
+      <img src="weekly enl fliers.jpg">
+
+      <img src="mssn week 5.jpg">
+
+      <img src="mssn week 5.jpg">
+
+      <img src="WEEK MSSN.jpg">
+
+    </div>
+
+  </section>
+
+
+
+
+  <button class="donate-btn" onclick="openDonation()">
+
+💚 Donate
+
+</button>
+
+<!-- Donation Popup -->
+
+<div id="donationModal" class="donation-modal">
+
+<div class="donation-content">
+
+<span class="close" onclick="closeDonation()">&times;</span>
+
+<h2>Support MSSN IBBUL</h2>
+
+<p>
+Your donation supports Da'awah activities,
+student welfare and Islamic programmes.
+</p>
+
+<div class="account-box">
+
+<p><strong>Bank:</strong>IBBUL-MICROFINANCE</p>
+
+<p><strong>Account Name:</strong></p>
+
+<p>MSSN IBBUL MICROFINANCE</p>
+
+<p><strong>Account Number:</strong></p>
+
+<h3 id="accountNumber">
+
+
+
+</h3>
+
+</div>
+
+<button class="copy-btn"
+onclick="copyAccount()">
+
+Copy Account Number
+
+</button>
+
+</div>
+
+</div>
+
+
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <h2>MSSN IBBUL</h2>
+
+    <p>
+      Muslim Students Society of Nigeria <br>
+      Ibrahim Badamasi Babangida University Chapter
+    </p>
+
+    <p>
+      2025/2026 Administration Session
+    </p>
+
+    <p>
+      © All Rights Reserved
+    </p>
+
+  </footer>
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    function showMessage(){
+      alert("Welcome to MSSN IBBUL Official Website");
+    }
+
+    // Countdown Timer
+
+    let countdownDate = new Date("Aug 10, 2026 00:00:00").getTime();
+
+    let timer = setInterval(function(){
+
+      let now = new Date().getTime();
+
+      let distance = countdownDate - now;
+
+      let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+      let hours = Math.floor((distance % (1000 * 60 * 60 * 24))
+      / (1000 * 60 * 60));
+
+      let minutes = Math.floor((distance % (1000 * 60 * 60))
+      / (1000 * 60));
+
+      let seconds = Math.floor((distance % (1000 * 60))
+      / 1000);
+
+      document.getElementById("timer").innerHTML =
+      days + "d : " +
+      hours + "h : " +
+      minutes + "m : " +
+      seconds + "s ";
+
+      if(distance < 0){
+        clearInterval(timer);
+        document.getElementById("timer").innerHTML =
+        "Da'awah Week Has Started";
+      }
+
+    },1000);
+
+
+<!-- Floating Button -->
+
+
+
+function openDonation(){
+
+document.getElementById("donationModal").style.display="block";
+
+}
+
+function closeDonation(){
+
+document.getElementById("donationModal").style.display="none";
+
+}
+
+window.onclick=function(event){
+
+let modal=document.getElementById("donationModal");
+
+if(event.target==modal){
+
+modal.style.display="none";
+
+}
+
+}
+
+function copyAccount(){
+
+let account=
+document.getElementById("accountNumber").innerText;
+
+navigator.clipboard.writeText(account);
+
+alert("Account number copied successfully!");
+
+}
+
+
+  </script>
+
+</body>
+</html>
