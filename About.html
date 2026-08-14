@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>About MSSN IBBUL</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#f5f5f5;
+      color:#222;
+    }
+
+    /* ================= HEADER ================= */
+
+    header{
+      background:darkgreen;
+      color:white;
+      padding:15px 5%;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .logo img{
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      background:white;
+    }
+
+    .logo-text h1{
+      font-size:22px;
+    }
+
+    .logo-text p{
+      font-size:13px;
+      margin-top:5px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      color:white;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:gold;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero{
+      height:60vh;
+      background:
+      linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+      url('MSSN_LOGO.png');
+
+      background-size:cover;
+      background-position:center;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      color:white;
+      padding:20px;
+    }
+
+    .hero h2{
+      font-size:55px;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:20px;
+      line-height:1.7;
+    }
+
+    /* ================= ABOUT ================= */
+
+    .about{
+      padding:80px 5%;
+      background:white;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:40px;
+      color:darkgreen;
+      margin-bottom:50px;
+    }
+
+    .about-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+      gap:40px;
+      align-items:center;
+    }
+
+    .about-image img{
+      width:100%;
+      border-radius:10px;
+      box-shadow:0 5px 10px rgba(0,0,0,0.2);
+    }
+
+    .about-text h3{
+      color:darkgreen;
+      font-size:30px;
+      margin-bottom:20px;
+    }
+
+    .about-text p{
+      line-height:1.9;
+      margin-bottom:20px;
+      font-size:17px;
+    }
+
+    /* ================= MISSION ================= */
+
+    .mission{
+      padding:80px 5%;
+    }
+
+    .mission-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .mission-card{
+      background:white;
+      padding:30px;
+      border-radius:10px;
+      box-shadow:0 5px 10px rgba(0,0,0,0.1);
+      transition:0.4s;
+    }
+
+    .mission-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .mission-card h3{
+      color:darkgreen;
+      margin-bottom:20px;
+      font-size:25px;
+    }
+
+    .mission-card p{
+      line-height:1.8;
+      font-size:16px;
+    }
+
+    /* ================= ACHIEVEMENTS ================= */
+
+    .achievements{
+      padding:80px 5%;
+      background:white;
+      text-align:center;
+    }
+
+    .achievement-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+      gap:30px;
+      margin-top:50px;
+    }
+
+    .achievement-box{
+      background:darkgreen;
+      color:white;
+      padding:40px 20px;
+      border-radius:10px;
+    }
+
+    .achievement-box h2{
+      font-size:45px;
+      color:gold;
+      margin-bottom:10px;
+    }
+
+    .achievement-box p{
+      font-size:18px;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer{
+      background:black;
+      color:white;
+      text-align:center;
+      padding:40px 20px;
+    }
+
+    footer p{
+      margin:10px 0;
+      line-height:1.8;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media(max-width:768px){
+
+      .hero h2{
+        font-size:38px;
+      }
+
+      .hero p{
+        font-size:17px;
+      }
+
+      .section-title{
+        font-size:30px;
+      }
+
+      .about-text h3{
+        font-size:25px;
+      }
+
+      .nav-links{
+        margin-top:20px;
+      }
+
+    }
+
+
+
+.donate-btn{
+position:fixed;
+bottom:25px;
+right:25px;
+background:darkgreen;
+color:white;
+padding:15px 22px;
+border:none;
+border-radius:50px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,.3);
+z-index:9999;
+transition:.3s;
+}
+
+.donate-btn:hover{
+background:green;
+transform:scale(1.05);
+}
+
+.donation-modal{
+display:none;
+position:fixed;
+z-index:10000;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.6);
+}
+
+.donation-content{
+background:white;
+width:90%;
+max-width:420px;
+margin:8% auto;
+padding:30px;
+border-radius:15px;
+text-align:center;
+position:relative;
+animation:popup .3s ease;
+}
+
+@keyframes popup{
+
+from{
+transform:scale(.7);
+opacity:0;
+}
+
+to{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+.close{
+position:absolute;
+top:10px;
+right:18px;
+font-size:28px;
+font-weight:bold;
+cursor:pointer;
+color:red;
+}
+
+.account-box{
+background:#f5f5f5;
+padding:15px;
+margin:20px 0;
+border-radius:10px;
+border-left:5px solid darkgreen;
+}
+
+.copy-btn{
+background:darkgreen;
+color:white;
+border:none;
+padding:12px 18px;
+border-radius:8px;
+cursor:pointer;
+font-size:15px;
+margin-top:15px;
+}
+
+.copy-btn:hover{
+background:green;
+}
+
+
+
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+
+  <header>
+
+    <nav>
+
+      <div class="logo">
+
+        <img src="MSSN_LOGO.png">
+
+        <div class="logo-text">
+          <h1>MSSN IBBUL</h1>
+          <p>2025/2026 Administration</p>
+        </div>
+
+      </div>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="administration.html">Administration</a>
+        <a href="programms.html">Programmes</a>
+        <a href="da'awah week.html">Da'awah Week</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+        
+         <a href="Shurah.html">Shurah</a>
+      </div>
+
+    </nav>
+
+  </header>
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero">
+
+    <div>
+
+      <h2>About MSSN IBBUL</h2>
+
+      <p>
+        Learn more about the mission, vision and activities of the Muslim Students Society of Nigeria, Ibrahim Badamasi Babangida University Chapter.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ================= ABOUT SECTION ================= -->
+
+  <section class="about">
+
+    <h2 class="section-title">Who We Are</h2>
+
+    <div class="about-container">
+
+      <div class="about-image">
+
+        <img src="MSSN_LOGO.png">
+
+      </div>
+
+      <div class="about-text">
+
+        <h3>Muslim Students Society of Nigeria</h3>
+
+        <p>
+          MSSN IBBUL is a student Islamic organization established to promote Islamic values,
+          brotherhood, academic excellence and spiritual development among Muslim students
+          within Ibrahim Badamasi Babangida University.
+        </p>
+
+        <p>
+          The society organizes lectures, enlightenment programmes, Da'awah activities,
+          humanitarian services and leadership development programmes aimed at building
+          responsible Muslim students in the society.
+        </p>
+
+        <p>
+          Through unity and sincerity, MSSN IBBUL continues to contribute positively
+          to campus life and the Muslim Ummah.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ================= MISSION SECTION ================= -->
+
+  <section class="mission">
+
+    <h2 class="section-title">Mission & Vision</h2>
+
+    <div class="mission-container">
+
+      <div class="mission-card">
+
+        <h3>Our Mission</h3>
+
+        <p>
+          To nurture Muslim students spiritually, academically and morally through
+          Islamic teachings, Da'awah and educational programmes.
+        </p>
+
+      </div>
+
+      <div class="mission-card">
+
+        <h3>Our Vision</h3>
+
+        <p>
+          To build a united and disciplined Muslim student community committed
+          to Islam, knowledge and positive societal impact.
+        </p>
+
+      </div>
+
+      <div class="mission-card">
+
+        <h3>Our Objectives</h3>
+
+        <p>
+          Promoting unity, Islamic awareness, leadership development,
+          academic excellence and peaceful coexistence among students.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ================= ACHIEVEMENTS ================= -->
+
+  <section class="achievements">
+
+    <h2 class="section-title">Our Activities</h2>
+
+    <div class="achievement-container">
+
+      <div class="achievement-box">
+        <h2 id="count1">0</h2>
+        <p>Weekly Programmes</p>
+      </div>
+
+      <div class="achievement-box">
+        <h2 id="count2">0</h2>
+        <p>Sisters forum</p>
+      </div>
+
+      <div class="achievement-box">
+        <h2 id="count3">0</h2>
+        <p>Humanitarian Activities</p>
+      </div>
+
+      <div class="achievement-box">
+        <h2 id="count4">0</h2>
+        <p>isalmiyya and academic classes(new studenst tutorials)</p>
+      </div>
+
+    </div>
+
+  </section>
+
+ <button class="donate-btn" onclick="openDonation()">
+
+💚 Donate
+
+</button>
+
+<!-- Donation Popup -->
+
+<div id="donationModal" class="donation-modal">
+
+<div class="donation-content">
+
+<span class="close" onclick="closeDonation()">&times;</span>
+
+<h2>Support MSSN IBBUL</h2>
+
+<p>
+Your donation supports Da'awah activities,
+student welfare and Islamic programmes.
+</p>
+
+<div class="account-box">
+
+
+<p><strong>Bank:</strong>IBBUL-MICROFINANCE</p>
+
+<p><strong>Account Name:</strong></p>
+
+<p>MSSN IBBUL MICROFINANCE</p>
+
+<p><strong>Account Number:</strong>1100005137</p>
+
+</h3>
+
+</div>
+
+<button class="copy-btn"
+onclick="copyAccount()">
+
+Copy Account Number
+
+</button>
+
+</div>
+
+</div>
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <h2>MSSN IBBUL</h2>
+
+    <p>
+      Muslim Students Society of Nigeria <br>
+      Ibrahim Badamasi Babangida University Chapter
+    </p>
+
+    <p>
+      2025/2026 Administration Session
+    </p>
+
+    <p>
+      © All Rights Reserved
+    </p>
+
+  </footer>
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    // Counter Animation
+
+    function counter(id, start, end, speed){
+
+      let obj = document.getElementById(id);
+
+      let current = start;
+
+      let timer = setInterval(function(){
+
+        current++;
+
+        obj.textContent = current;
+
+        if(current == end){
+          clearInterval(timer);
+        }
+
+      }, speed);
+
+    }
+
+    counter("count1", 0, 10, 200);
+    counter("count2", 0, 13, 80);
+    counter("count3", 0, 4, 150);
+    counter("count4", 0, 1, 100);
+
+
+function openDonation(){
+
+document.getElementById("donationModal").style.display="block";
+
+}
+
+function closeDonation(){
+
+document.getElementById("donationModal").style.display="none";
+
+}
+
+window.onclick=function(event){
+
+let modal=document.getElementById("donationModal");
+
+if(event.target==modal){
+
+modal.style.display="none";
+
+}
+
+}
+
+function copyAccount(){
+
+let account=
+document.getElementById("accountNumber").innerText;
+
+navigator.clipboard.writeText(account);
+
+alert("Account number copied successfully!");
+
+}
+
+
+
+  </script>
+
+</body>
+</html>
