@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Faculty Coordinators | MSSN IBBUL</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f5f5f5;
+}
+
+header{
+background:darkgreen;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+header h1{
+margin-bottom:10px;
+}
+
+.hero{
+padding:60px 20px;
+text-align:center;
+background:white;
+}
+
+.hero h2{
+color:darkgreen;
+margin-bottom:15px;
+font-size:40px;
+}
+
+.hero p{
+max-width:800px;
+margin:auto;
+line-height:1.8;
+}
+
+.faculties{
+padding:60px 5%;
+}
+
+.faculties-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.faculty-card{
+background:white;
+padding:30px;
+border-radius:15px;
+text-align:center;
+cursor:pointer;
+box-shadow:0 5px 10px rgba(0,0,0,.1);
+transition:.3s;
+}
+
+.faculty-card:hover{
+background:darkgreen;
+color:white;
+transform:translateY(-5px);
+}
+
+.details{
+display:none;
+padding:40px;
+margin-top:40px;
+background:white;
+border-radius:15px;
+box-shadow:0 5px 10px rgba(0,0,0,.1);
+}
+
+.details h3{
+color:darkgreen;
+margin-bottom:20px;
+}
+
+.coordinator-box{
+margin-bottom:30px;
+padding:20px;
+background:#f5f5f5;
+border-left:5px solid darkgreen;
+border-radius:10px;
+}
+
+.coordinator-box p{
+margin:8px 0;
+}
+
+footer{
+background:black;
+color:white;
+text-align:center;
+padding:30px;
+margin-top:50px;
+}
+
+
+.donate-btn{
+position:fixed;
+bottom:25px;
+right:25px;
+background:darkgreen;
+color:white;
+padding:15px 22px;
+border:none;
+border-radius:50px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,.3);
+z-index:9999;
+transition:.3s;
+}
+
+.donate-btn:hover{
+background:green;
+transform:scale(1.05);
+}
+
+.donation-modal{
+display:none;
+position:fixed;
+z-index:10000;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.6);
+}
+
+.donation-content{
+background:white;
+width:90%;
+max-width:420px;
+margin:8% auto;
+padding:30px;
+border-radius:15px;
+text-align:center;
+position:relative;
+animation:popup .3s ease;
+}
+
+@keyframes popup{
+
+from{
+transform:scale(.7);
+opacity:0;
+}
+
+to{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+.close{
+position:absolute;
+top:10px;
+right:18px;
+font-size:28px;
+font-weight:bold;
+cursor:pointer;
+color:red;
+}
+
+.account-box{
+background:#f5f5f5;
+padding:15px;
+margin:20px 0;
+border-radius:10px;
+border-left:5px solid darkgreen;
+}
+
+.copy-btn{
+background:darkgreen;
+color:white;
+border:none;
+padding:12px 18px;
+border-radius:8px;
+cursor:pointer;
+font-size:15px;
+margin-top:15px;
+}
+
+.copy-btn:hover{
+background:green;
+}
+
+
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1>MSSN IBBUL</h1> 
+
+<p>Faculty Coordinators Directory</p>
+
+</header>
+
+<section class="hero">
+
+<h2>Meet Your Faculty Coordinator</h2>
+
+<p>
+
+Students interested in participating in
+Da'awah Week activities should contact
+their Faculty Coordinator for registration
+and further guidance.
+
+</p>
+
+</section>
+
+<section class="faculties">
+
+<div class="faculties-grid">
+
+<div class="faculty-card"
+onclick="showFaculty('ast')">
+
+Applied Science & Technology
+
+</div>
+
+<div class="faculty-card"
+onclick="showFaculty('ns')">
+
+Natural Science
+
+</div>
+
+<div class="faculty-card"
+onclick="showFaculty('ea')">
+
+Education & Arts
+
+</div>
+
+<div class="faculty-card"
+onclick="showFaculty('agric')">
+
+Agriculture
+
+</div>
+
+<div class="faculty-card"
+onclick="showFaculty('mbbs')">
+
+MBBS
+
+</div>
+
+<div class="faculty-card"
+onclick="showFaculty('pharmacy')">
+
+Pharmacy
+
+</div>
+
+<div class="faculty-card"
+onclick="showFaculty('mss')">
+
+Management & Social Science
+
+</div>
+
+<div class="faculty-card"
+onclick="showFaculty('law')">
+
+Law
+
+</div>
+
+</div>
+
+<!-- AST -->
+
+<div id="ast" class="details">
+
+<h3>Applied Science & Technology</h3>
+
+<div class="coordinator-box">
+
+<h4>Faculty Coordinator</h4>
+
+<p><strong>Name:</strong> Salihu Adamu</p>
+
+<p><strong>Department:</strong> Geology & Mining</p>
+
+<p><strong>Level:</strong> 400 Level</p>
+
+<p><strong>Contact:</strong> 07082008004</p>
+
+</div>
+
+<div class="coordinator-box">
+
+<h4>Assistant Faculty Coordinator</h4>
+
+<p><strong>Name:</strong> A'isha Shehu Abdul Qadir</p>
+
+<p><strong>Department:</strong> Geology & Mining</p>
+
+<p><strong>Level:</strong> 400 Level</p>
+
+<p><strong>Contact:</strong> 08131486875</p>
+
+</div>
+
+</div>
+
+<!-- NATURAL SCIENCE -->
+
+<div id="ns" class="details">
+
+<h3>Natural Science</h3>
+
+<!-- <div class="coordinator-box">
+<div id="ast" class="details"> -->
+
+<!-- <h3>Applied Science & Technology</h3> -->
+
+<div class="coordinator-box">
+
+<h4>Faculty Coordinator</h4>
+
+<p><strong>Name:</strong> Abdullahi Abdulkabir </p>
+
+<p><strong>Department:</strong> Biotechnology</p>
+
+<p><strong>Level:</strong> 300 Level</p>
+
+<p><strong>Contact:</strong> 09167558546</p>
+
+</div>
+
+<div class="coordinator-box">
+
+<h4>Assistant Faculty Coordinator</h4>
+
+<p><strong>Name:</strong>  Habiba bintu Jibril</p>
+
+<p><strong>Department:</strong> Microbiology</p>
+
+<p><strong>Level:</strong> 400 Level</p>
+
+<p><strong>Contact:</strong>08162860930</p>
+<!-- 
+</div>
+
+</div> -->
+
+<!-- <p>Faculty Coordinator details will be updated soon.</p> -->
+
+</div>
+
+</div>
+
+<!-- EDUCATION -->
+
+<div id="ea" class="details">
+
+<h3>Education & Arts</h3>
+
+<!-- <div class="coordinator-box">
+
+<div id="ast" class="details">
+
+<h3>Applied Science & Technology</h3> -->
+
+<div class="coordinator-box">
+
+<h4>Faculty Coordinator</h4>
+
+<p><strong>Name:</strong> Sulaiman Mukhtar Usman</p>
+
+<p><strong>Department:</strong> Computer Education</p>
+
+<p><strong>Level:</strong> 300 Level</p>
+
+<p><strong>Contact:</strong> 09039388365</p>
+
+</div>
+
+<div class="coordinator-box">
+
+<h4>Assistant Faculty Coordinator</h4>
+
+<p><strong>Name:</strong> Adama Muhammad Shaku</p>
+
+<p><strong>Department:</strong> History and International Studies</p>
+
+<p><strong>Level:</strong> 400 Level</p>
+
+<p><strong>Contact:</strong> 08161220750</p>
+<!-- 
+</div>
+
+</div> -->
+
+
+<!-- 
+<p>Faculty Coordinator details will be updated soon.</p> -->
+
+</div>
+
+</div>
+
+
+
+<!-- AGRIC -->
+
+<div id="agric" class="details">
+
+<h3>Agriculture</h3>
+
+<!-- <div class="coordinator-box">
+
+<div id="ast" class="details"> 
+
+<h3>Applied Science & Technology</h3> -->
+
+<div class="coordinator-box">
+
+<h4>Faculty Coordinator</h4>
+
+<p><strong>Name:</strong> Hassan Isah Ismail</p>
+
+<p><strong>Department:</strong> Agric Science</p>
+
+<p><strong>Level:</strong> 400 Level</p>
+
+<p><strong>Contact:</strong> 08136835118</p>
+
+</div>
+
+<div class="coordinator-box">
+
+<h4>Assistant Faculty Coordinator</h4>
+
+<p><strong>Name:</strong> Wafiqah Sadiq Akawu</p>
+
+<p><strong>Department:</strong> Agric Science</p>
+
+<p><strong>Level:</strong> 500 Level</p>
+
+<p><strong>Contact:</strong> 08074156789</p>
+
+<!-- </div>
+
+</div> -->
+
+
+<!-- <p>Faculty Coordinator details will be updated soon.</p> -->
+
+</div>
+
+</div>
+
+<!-- MBBS -->
+
+<div id="mbbs" class="details">
+
+<h3>MBBS</h3>
+
+<div class="coordinator-box">
+
+
+
+<!-- <div id="ast" class="details">
+
+<h3>Applied Science & Technology</h3>
+
+<div class="coordinator-box"> -->
+
+<h4>Faculty Coordinator</h4>
+
+<p><strong>Name:</strong> Musa Yakub Yebosoko</p>
+
+<p><strong>Department:</strong> MBBS
+
+<p><strong>Level:</strong> 200 Level</p>
+
+<p><strong>Contact:</strong> 07034682436</p>
+
+</div>
+
+<div class="coordinator-box">
+
+<h4>Assistant Faculty Coordinator</h4>
+
+<p><strong>Name:</strong> Fatima Zahra El-Sheikh</p>
+
+<p><strong>Department:</strong> MBBS</p>
+
+<p><strong>Level:</strong> 200 Level</p>
+
+<p><strong>Contact:</strong> 09035623567</p>
+<!-- 
+</div>
+
+</div>
+
+
+
+<p>Faculty Coordinator details will be updated soon.</p> -->
+
+</div>
+
+</div>
+
+<!-- PHARMACY -->
+
+<div id="pharmacy" class="details">
+
+<h3>Pharmacy</h3>
+
+<div class="coordinator-box">
+
+<!-- <div id="ast" class="details">
+
+<h3>Applied Science & Technology</h3>
+
+<div class="coordinator-box"> -->
+
+<h4>Faculty Coordinator</h4>
+
+<p><strong>Name:</strong>Mustapha Mahmud</p>
+
+<p><strong>Department:</strong> Dr Of Pharmacy</p>
+
+<p><strong>Level:</strong> 200 Level</p>
+
+<p><strong>Contact:</strong> 070466990221</p>
+
+</div>
+
+<div class="coordinator-box">
+
+<h4>Assistant Faculty Coordinator</h4>
+
+<p><strong>Name:</strong> Rukayya Abdulhakeem</p>
+
+<p><strong>Department:</strong> Dr. Pharmacy</p>
+
+<p><strong>Level:</strong> 200 Level</p>
+
+<p><strong>Contact:</strong> 09066495909</p>
+<!-- 
+</div>
+
+</div>
+
+
+
+
+<p>Faculty Coordinator details will be updated soon.</p> -->
+
+</div>
+
+</div>
+
+
+
+
+<!-- MSS -->
+
+<div id="mss" class="details">
+
+<h3>Management & Social Science</h3>
+
+<!-- <div class="coordinator-box">
+
+
+    <div id="ast" class="details">
+
+<h3>Applied Science & Technology</h3> -->
+
+<div class="coordinator-box">
+
+<h4>Faculty Coordinator</h4>
+
+<p><strong>Name:</strong> Rabiu Musa</p>
+
+<p><strong>Department:</strong> Islamic studies</p>
+
+<p><strong>Level:</strong> 400 Level</p>
+
+<p><strong>Contact:</strong> 07088122983</p>
+
+</div>
+
+<div class="coordinator-box">
+
+<h4>Assistant Faculty Coordinator</h4>
+
+<p><strong>Name:</strong> Saratu Abubakar</p>
+
+<p><strong>Department:</strong> Islamic Studies</p>
+
+<p><strong>Level:</strong> 300 Level</p>
+
+<p><strong>Contact:</strong> 081669520617</p>
+
+<!-- </div>
+
+</div> -->
+
+<!--     
+<p>Faculty Coordinator details will be updated soon.</p> -->
+
+</div>
+
+</div>
+
+
+
+
+<!-- LAW -->
+
+<div id="law" class="details">
+
+<h3>Law</h3>
+
+<div class="coordinator-box">
+
+
+<!-- 
+    <div id="ast" class="details">
+
+<h3>Applied Science & Technology</h3>
+
+<div class="coordinator-box"> 
+
+<h4>Faculty Coordinator</h4>
+
+<p><strong>Name:</strong> Mahmud Abubakar Madaki</p>
+
+<p><strong>Department:</strong> Computer Science</p>
+
+<p><strong>Level:</strong> 400 Level</p>
+
+<p><strong>Contact:</strong> 07044400164</p>
+
+</div>
+
+<div class="coordinator-box">
+
+<h4>Assistant Faculty Coordinator</h4>
+
+<p><strong>Name:</strong> A'isha Shehu Abdul Qadir</p>
+
+<p><strong>Department:</strong> Geology & Mining</p>
+
+<p><strong>Level:</strong> 300 Level</p>
+
+<p><strong>Contact:</strong> 07086686288</p>
+
+</div>
+
+</div> -->
+
+<p>Faculty Coordinator details will be updated soon.</p> 
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<h3>MSSN IBBUL</h3>
+
+<p>2025/2026 Administration</p>
+ <button class="donate-btn" onclick="openDonation()">
+
+💚 Donate
+
+</button>
+
+<!-- Donation Popup -->
+
+<div id="donationModal" class="donation-modal">
+
+<div class="donation-content">
+
+<span class="close" onclick="closeDonation()">&times;</span>
+
+<h2>Support MSSN IBBUL</h2>
+
+<p>
+Your donation supports Da'awah activities,
+student welfare and Islamic programmes.
+</p>
+
+<div class="account-box">
+
+<p><strong>Bank:</strong> Jaiz Bank</p>
+<p><strong>Account Name:</strong></p>
+<p>MSSN IBBUL Branch</p>
+<p><strong>Account Number:</strong>IBBUL-MICROFINANCE</p>
+<p><strong>Bank:</strong></p>
+<p>MSSN IBBUL MICROFINANCE</p>
+<h3 id="accountNumber"></h3>
+<p><strong>Account Number:</strong>1100005137</p>
+
+</h3>
+
+</div>
+
+<button class="copy-btn"
+onclick="copyAccount()">
+
+Copy Account Number
+
+</button>
+
+</div>
+
+</div>
+
+
+</footer>
+
+<script>
+
+function showFaculty(id){
+
+let details =
+document.querySelectorAll('.details');
+
+details.forEach(function(item){
+
+item.style.display='none';
+
+});
+
+document.getElementById(id)
+.style.display='block';
+
+window.scrollTo({
+top:document.getElementById(id).offsetTop-100,
+behavior:'smooth'
+});
+
+}
+
+function openDonation(){
+
+document.getElementById("donationModal").style.display="block";
+
+}
+
+function closeDonation(){
+
+document.getElementById("donationModal").style.display="none";
+
+}
+
+window.onclick=function(event){
+
+let modal=document.getElementById("donationModal");
+
+if(event.target==modal){
+
+modal.style.display="none";
+
+}
+
+}
+
+function copyAccount(){
+
+let account=
+document.getElementById("accountNumber").innerText;
+
+navigator.clipboard.writeText(account);
+
+alert("Account number copied successfully!");
+
+}
+
+</script>
+
+</body>
+</html>
