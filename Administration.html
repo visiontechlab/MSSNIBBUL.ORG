@@ -1,0 +1,1881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MSSN IBBUL Administration</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#f5f5f5;
+      color:#222;
+    }
+
+    /* ================= HEADER ================= */
+
+    header{
+      background:darkgreen;
+      color:white;
+      padding:15px 5%;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .logo img{
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      background:white;
+    }
+
+    .logo-text h1{
+      font-size:22px;
+    }
+
+    .logo-text p{
+      font-size:13px;
+      margin-top:5px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      color:white;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+
+
+    .nav-links a:hover{
+      color:gold;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero{
+      height:60vh;
+
+      background:
+      linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+      url(MSSN_LOGO.png);
+
+      background-size:cover;
+      background-position:center;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      color:white;
+      padding:20px;
+    }
+
+    .hero h2{
+      font-size:55px;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:20px;
+      line-height:1.8;
+    }
+
+    /* ================= EXECUTIVES ================= */
+
+    .executives{
+      padding:80px 5%;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:40px;
+      color:darkgreen;
+      margin-bottom:60px;
+    }
+
+    .executive-container{
+      display: grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px,4fr));
+      gap:10px;
+    }
+
+    .executive-card{
+      background:white;
+      border-radius:15px;
+      overflow:hidden;
+      box-shadow:0 5px 10px rgba(0,0,0,0.1);
+      transition:0.4s;
+      position: relative;
+    }
+
+    .executive-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .executive-card img{
+      width:100%;
+      height:300px;
+      object-fit:cover;
+    }
+
+    .executive-content{
+      padding:25px;
+      text-align:center;
+    }
+
+    .executive-content h3{
+      color:darkgreen;
+      margin-bottom:10px;
+      font-size:24px;
+    }
+
+    .executive-content h4{
+      color:goldenrod;
+      margin-bottom:15px;
+      font-size:18px;
+    }
+
+    .executive-content p{
+      line-height:1.8;
+      font-size:15px;
+    }
+
+    /* ================= DEPARTMENTS ================= */
+
+    .departments{
+      padding:80px 5%;
+      background:white;
+    }
+
+    .department-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .department-card{
+      background:#f5f5f5;
+      padding:30px;
+      border-radius:10px;
+      transition:0.4s;
+      border-left:5px solid darkgreen;
+    }
+
+    .department-card:hover{
+      background:darkgreen;
+      color:white;
+      transform:scale(1.03);
+    }
+
+    .department-card h3{
+      margin-bottom:20px;
+      font-size:25px;
+    }
+
+    .department-card p{
+      line-height:1.8;
+    }
+
+    /* ================= MESSAGE SECTION ================= */
+
+    .message{
+      padding:80px 5%;
+      text-align:center;
+    }
+
+    .message-box{
+      max-width:900px;
+      margin:auto;
+      background:darkgreen;
+      color:white;
+      padding:50px;
+      border-radius:15px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .message-box h2{
+      font-size:40px;
+      margin-bottom:30px;
+      color:gold;
+    }
+
+    .message-box p{
+      line-height:2;
+      font-size:18px;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer{
+      background:black;
+      color:white;
+      text-align:center;
+      padding:40px 20px;
+    }
+
+    footer p{
+      margin:10px 0;
+      line-height:1.8;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media(max-width:768px){
+
+      .hero h2{
+        font-size:38px;
+      }
+
+      .hero p{
+        font-size:17px;
+      }
+
+      .section-title{
+        font-size:30px;
+      }
+
+      .nav-links{
+        margin-top:20px;
+      }
+
+      .message-box{
+        padding:30px 20px;
+      }
+
+      .message-box h2{
+        font-size:30px;
+      }
+
+    }
+
+
+
+
+
+
+.modal{
+
+display:none;
+
+position:fixed;
+
+left:0;
+
+top:0;
+
+width:100%;
+
+height:100%;
+
+background:rgba(0,0,0,.6);
+
+z-index:9999;
+
+}
+
+.modal-content{
+
+background:white;
+
+width:90%;
+
+max-width:450px;
+
+margin:8% auto;
+
+padding:30px;
+
+border-radius:15px;
+
+position:relative;
+
+animation:zoom .3s;
+
+}
+
+@keyframes zoom{
+
+from{
+
+transform:scale(.7);
+
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
+
+.close{
+
+position:absolute;
+
+right:20px;
+
+top:15px;
+
+font-size:28px;
+
+cursor:pointer;
+
+color:red;
+
+}
+
+.modal-content p{
+
+margin:15px 0;
+
+line-height:1.8;
+
+}
+
+
+
+
+.donate-btn{
+position:fixed;
+bottom:25px;
+right:25px;
+background:darkgreen;
+color:white;
+padding:15px 22px;
+border:none;
+border-radius:50px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,.3);
+z-index:9999;
+transition:.3s;
+}
+
+.donate-btn:hover{
+background:green;
+transform:scale(1.05);
+}
+
+.donation-modal{
+display:none;
+position:fixed;
+z-index:10000;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.6);
+}
+
+.donation-content{
+background:white;
+width:90%;
+max-width:420px;
+margin:8% auto;
+padding:30px;
+border-radius:15px;
+text-align:center;
+position:relative;
+animation:popup .3s ease;
+}
+
+@keyframes popup{
+
+from{
+transform:scale(.7);
+opacity:0;
+}
+
+to{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+.close{
+position:absolute;
+top:10px;
+right:18px;
+font-size:28px;
+font-weight:bold;
+cursor:pointer;
+color:red;
+}
+
+.account-box{
+background:#f5f5f5;
+padding:15px;
+margin:20px 0;
+border-radius:10px;
+border-left:5px solid darkgreen;
+}
+
+.copy-btn{
+background:darkgreen;
+color:white;
+border:none;
+padding:12px 18px;
+border-radius:8px;
+cursor:pointer;
+font-size:15px;
+margin-top:15px;
+}
+
+.copy-btn:hover{
+background:green;
+}
+
+
+
+
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+
+  <header>
+
+    <nav>
+
+      <div class="logo">
+
+        <img src="MSSN_LOGO.png">
+
+        <div class="logo-text">
+          <h1>MSSN IBBUL</h1>
+          <p>2025/2026 Administration</p>
+        </div>
+
+      </div>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="About.html">About</a>
+        <a href="Administration.html">Administration</a>
+        <a href="Programms.html">Programms</a>
+        <a href="Da'awah week.html">Da'awah Week</a>
+        <a href="Gallery.html">Gallery</a>
+        <a href="Contact.html">Contact</a>
+        <!-- <a href="Executives.html">Executives</a> -->
+         <a href="Shurah.html">Shurah</a>
+      </div>
+
+    </nav>
+
+  </header>
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero">
+
+    <div>
+
+      <h2>Meet The Administration</h2>
+
+      <p>
+        Dedicated Muslim student leaders committed to service,
+        unity, Da'awah and academic excellence within IBBUL.
+      </p>
+
+    </div>
+
+  </section>
+ <h2 class="section-title">Executive Council</h2>
+
+    <div class="executive-container">
+
+
+<div class="executive-card" onclick="openExecutive('amir')">
+
+<img src="Ya Ameer Real.jpg">
+        <div class="executive-content">
+
+          <h3>Muhammad Aliyu</h3>
+
+          <h4>Amir</h4>
+
+          <p>
+            Leading the administration with dedication towards
+            unity, Islamic propagation and student welfare.
+          </p>
+ <button>More</button>
+        </div>
+
+
+</div>
+<!-- card 2 -->
+
+<div class="executive-card" onclick="openExecutive('naIbulAmirAdministration')">
+
+<img src="Bro Zubair.jpg">
+        <div class="executive-content">
+
+          <h3>Zubairu Jibril</h3>
+
+          <h4>Na'Ibul Amir Administration</h4>
+
+          <p>
+             Assisting in coordination of programmes and strengthening
+            student participation in all MSSN activities.
+          </p>
+<button>More</button> 
+        </div>
+
+
+</div>
+<!-- card 3 -->
+
+<div class="executive-card" onclick="openExecutive('naIbulAmirAcademics')">
+
+<img src="Jaddun.jpg">
+        <div class="executive-content">
+
+          <h3>Idris Nasir Muhammad</h3>
+
+          <h4>Na'Ibul Amir Academics</h4>
+
+          <p>
+             Coordinating Academic Activities of the society
+          </p>
+<button>More</button> 
+        </div>
+
+
+</div>
+
+<!-- card 4 -->
+
+<div class="executive-card" onclick="openExecutive('secretary')">
+
+<img src="Secretary Real.jpg">
+        <div class="executive-content">
+
+          <h3>Muhammad Kabir Ibrahim</h3>
+
+          <h4>Secretary</h4>
+
+          <p>
+            Leading the administration with dedication towards
+            unity, Islamic propagation and student welfare.
+          </p>
+<button>More</button> 
+        </div>
+
+
+</div>
+
+
+<!-- card5 -->
+
+
+<div class="executive-card" onclick="openExecutive('DirectorOfFinance')">
+
+<img src="Mal Hamza.jpg">
+        <div class="executive-content">
+
+          <h3>Hamza Alhassan</h3>
+
+          <h4>Director Of Finance</h4>
+
+          <p>
+            Managing in and out cash flow of the society
+          </p>
+<button>More</button> 
+        </div>
+
+
+</div>
+
+<!-- Card 6 -->
+
+<div class="executive-card" onclick="openExecutive('chiefDaawah')">
+
+<img src="Chief Da'awa Real.jpg">
+        <div class="executive-content">
+
+          <h3>Abdullahi Bello Abdullahi</h3>
+
+          <h4>Chief Daawah</h4>
+
+          <p>
+            Managing and cordinating of Da'awah Activities including islamiyya classes.
+          </p>
+ <button>More</button> 
+        </div>
+
+
+</div>
+
+<!-- card 7 -->
+
+<div class="executive-card" onclick="openExecutive('chiefOrganizer')">
+
+<img src="Fresher 02.jpg">
+        <div class="executive-content">
+
+          <h3>Mahmud Abubakar Madaki</h3>
+
+          <h4>chief Organizer</h4>
+
+          <p>
+            Master of the Society, Cordinates and Organizes
+             each and every program in the society
+          </p>
+<button>More</button> 
+        </div>
+
+
+</div>
+
+
+<!-- card 8 -->
+ <div class="executive-card" onclick="openExecutive('welfare')">
+
+<img src="Chief Welfare Real.jpg">
+        <div class="executive-content">
+
+          <h3>Abubakar Sadiq Musa</h3>
+
+          <h4>Welfare</h4>
+
+          <p>
+            managing the welfarism of evry program
+          </p>
+<button>More</button> 
+        </div>
+
+
+</div>
+
+
+
+<!-- card 9 -->
+
+
+
+
+<div class="executive-card" onclick="openExecutive('amira')">
+
+<img src="MSSN_LOGO.png">
+        <div class="executive-content">
+
+          <h3>Twayyiba Muhammad Twahir</h3>
+
+          <h4>Amira</h4>
+
+          <p>
+            Leading the administration with dedication towards
+            unity, Islamic propagation and student welfare.
+          </p>
+<button>More</button> 
+        </div>
+
+
+</div>
+
+<!-- card 10 -->
+
+
+<div class="executive-card" onclick="openExecutive('amiraAdministration')">
+
+<img src="MSSN_LOGO.png">
+        <div class="executive-content">
+
+          <h3>Amina Muhammad Jamil</h3>
+
+          <h4>Amira Administration</h4>
+
+          <!-- <p>
+            Leading the administration with dedication towards
+            unity, Islamic propagation and student welfare.
+          </p> -->
+<button>More</button> 
+        </div>
+
+
+</div>
+
+<!-- card 11 -->
+
+
+<div class="executive-card" onclick="openExecutive('amiraAcademics')">
+
+<img src="MSSN_LOGO.png">
+        <div class="executive-content">
+
+          <h3>Fatima Muhammad Tsakpe</h3>
+
+          <h4>Amira Academics</h4>
+
+          <!-- <p>
+            Leading the administration with dedication towards
+            unity, Islamic propagation and student welfare.
+          </p> -->
+<button>More</button> 
+        </div>
+
+
+</div>
+
+
+<!-- card 12 -->
+
+<div class="executive-card" onclick="openExecutive('sistersSecretary')">
+
+<img src="MSSN_LOGO.png">
+        <div class="executive-content">
+
+          <h3>Zainab Surajudeen</h3>
+
+          <h4>Sisters Secretary</h4>
+
+          <!-- <p>
+            Leading the administration with dedication towards
+            unity, Islamic propagation and student welfare.
+          </p> -->
+<button>More</button> 
+        </div>
+
+
+</div>
+
+
+<!-- card 13 -->
+
+<div class="executive-card" onclick="openExecutive('Treasurer')">
+
+<img src="MSSN_LOGO.png">
+        <div class="executive-content">
+
+          <h3>Fatima Zahra Yahaya</h3>
+
+          <h4>Treasurer</h4>
+
+          <!-- <p>
+            Leading the administration with dedication towards
+            unity, Islamic propagation and student welfare.
+          </p>
+  -->
+          <button>More</button>
+        </div>
+
+
+</div>
+
+
+<!-- card 14 -->
+
+<div class="executive-card" onclick="openExecutive('sistersDaawah')">
+
+<img src="MSSN_LOGO.png">
+        <div class="executive-content">
+
+          <h3>Khadija Abdullahi Saba</h3>
+
+          <h4>Sisters Daawah</h4>
+
+          <!-- <p>
+            Leading the administration with dedication towards
+            unity, Islamic propagation and student welfare.
+          </p>
+  -->
+          <button>More</button>
+        </div>
+
+</div>
+
+
+<!-- card 15 -->
+
+
+<div class="executive-card" onclick="openExecutive('SistersOrganizer')">
+
+<img src="MSSN_LOGO.png">
+        <div class="executive-content">
+
+          <h3>Fatima Zahra Abdullahi</h3>
+
+          <h4>Sisters Organizer</h4>
+
+          <!-- <p>
+            Leading the administration with dedication towards
+            unity, Islamic propagation and student welfare.
+          </p> -->
+ <button>More</button>
+        </div>
+
+
+</div>
+
+
+
+<!-- card16 -->
+
+<div class="executive-card" onclick="openExecutive('SistersWelfare')">
+
+<img src="MSSN_LOGO.png">
+        <div class="executive-content">
+
+          <h3>jamila Umar</h3>
+
+          <h4>Sisters Welfare</h4>
+
+          <!-- <p>
+            Leading the administration with dedication towards
+            unity, Islamic propagation and student welfare.
+          </p>
+  -->
+
+  <button>More</button>
+        </div>
+
+
+</div>
+
+
+</div>
+
+
+
+  <!-- ================= EXECUTIVES ================= -->
+
+ <!-- <section class="executives">
+
+    <h2 class="section-title">Executive Council</h2>
+
+    <div class="executive-container">
+
+       CARD 1 
+
+      <div class="executive-card">
+
+        <img src="YA AMEER.png">
+
+        <div class="executive-content">
+
+          <h3>Muhammad Aliyu</h3>
+
+          <h4>Amir</h4>
+
+          <p>
+            Leading the administration with dedication towards
+            unity, Islamic propagation and student welfare.
+          </p>
+ 
+        </div>
+
+      </div>
+
+    -->
+
+
+
+
+      <!-- CARD 2 
+
+      <div class="executive-card">
+<img src="Bro Zubair.jpg">
+       
+        <div class="executive-content">
+
+          <h3>Zubairu Jibril</h3>
+
+          <h4>Na'ibul Amir Administration</h4>
+
+          <p>
+            Assisting in coordination of programmes and strengthening
+            student participation in all MSSN activities.
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+       CARD 3 
+
+      <div class="executive-card">
+
+        <img src="Jaddun.jpg">
+ 
+
+        <div class="executive-content">
+
+          <h3>Idris Muhammad Nasir</h3>
+
+          <h4>Na'ibul Ameer Academics</h4>
+
+          <p>
+            Coordinating Academic Activities of the society
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+
+       CARD 4 
+
+      <div class="executive-card">
+
+        <img src="Mal Hamza.jpg">
+
+        <div class="executive-content">
+
+          <h3>Hamza Alhassan</h3>
+
+          <h4>Director of Finance</h4>
+
+          <p>
+            Managing in and out cash flow of the society
+          </p>
+</div>
+
+
+
+
+
+        </div>
+          CARD 5
+
+      <div class="executive-card">
+
+        <img src="Chief Da'awa.jpg">
+
+        <div class="executive-content">
+
+          <h3>Abdullahi Bello Abdullai</h3>
+
+          <h4>Chief Da'awah</h4>
+
+          <p>
+            Managing and cordinating of Da'awah Activities including islamiyya classes.
+          </p>
+</div>
+        </div>
+
+
+
+
+
+
+
+ CARD 6 
+
+
+ <div class="executive-card">
+
+        <img src="Fresher 1.jpg">
+
+        <div class="executive-content">
+
+          <h3>Mahmud Abubakar Madaki</h3>
+
+          <h4>Chief Organizer 001</h4>
+
+          <p>
+            Master of the Society, Cordinates and Organizes
+             each and every program in the society
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+
+       CARD 7
+
+      <div class="executive-card">
+
+        <img src="bro Sadiq welfare.jpg">
+
+        <div class="executive-content">
+
+          <h3>Abubakar Sadiq Musa</h3>
+
+          <h4>Welfare Director</h4>
+
+          <p>
+            managing the welfarism of evry program
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+       CARD 8 
+
+      <div class="executive-card">
+
+        <img src="bro Kabir Sec.jpg">
+
+        <div class="executive-content">
+
+          <h3>Muhammad kabir</h3>
+
+          <h4>Secretary</h4>
+
+          <p>
+            Secretatry to the office of the Ameer
+          </p>
+
+        </div>
+
+</div>
+
+
+
+<br>
+         CARD 9 
+
+         <div class="executive-card">
+
+        <img src="Ya Ameera TMT.jpg">
+
+        <div class="executive-content">
+
+          <h3>Twayyibba Muhammad Twahir</h3>
+
+          <h4>Amira</h4>
+
+          <p>
+            Leading the Sisters Wing with dedication towards
+            unity, Islamic propagation and student welfare.
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+
+
+      CARD 10 
+
+      <div class="executive-card">
+
+        <img src="Ya Ameera ( kobo).jpg">
+
+        <div class="executive-content">
+
+          <h3>Amina Jamil Muhammad</h3>
+
+          <h4>Na'ibbatul Amira</h4>
+
+          <p>
+            Ameera Administration
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+
+
+
+       CARD 11
+
+      <div class="executive-card">
+
+        <img src="MSSN_LOGO.png">
+
+        <div class="executive-content">
+
+          <h3>Fatima muhammad tsakpe</h3>
+
+          <h4>Ameera Academics</h4>
+
+          <p>
+            Ameera 3
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+
+
+       CARD 12
+
+       <div class="executive-card">
+
+        <img src="MSSN_LOGO.png">
+
+        <div class="executive-content">
+
+          <h3>Zainab Bello Surajudeen</h3>
+
+          <h4>Sisters Secretary</h4>
+
+          <p>
+           Secretary to the Ameera
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+       CARD 13 
+
+      <div class="executive-card">
+
+        <img src="MSSN_LOGO.png">
+
+        <div class="executive-content">
+
+          <h3>Khadija Abdullahi Saba</h3>
+
+          <h4>Sisters Da'awah</h4>
+
+          <p>
+            
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+       CARD 14 
+
+      <div class="executive-card">
+
+        <img src="MSSN_LOGO.png">
+
+        <div class="executive-content">
+
+          <h3>Fatima Zahra Yahaya</h3>
+
+          <h4>Treasurer</h4>
+
+          <p>
+           
+          </p>
+
+        </div>
+
+
+
+
+
+
+    
+    </div>
+
+ CARD 15
+
+      <div class="executive-card">
+
+        <img src="MSSN_LOGO.png">
+
+        <div class="executive-content">
+
+          <h3>Jamila Umar</h3>
+
+          <h4>Sisters Welfare</h4>
+
+          <p>
+            
+          </p>
+
+        </div>
+
+      </div>
+ CARD 16 
+
+      <div class="executive-card">
+
+        <img src="MSSN_LOGO.png">
+
+        <div class="executive-content">
+
+          <h3>Sister Fatima Zahra Abdullahi</h3>
+
+          <h4>Sisters Organizer</h4>
+
+          <p>
+            
+          </p>
+
+        </div>
+
+      </div>
+
+</div>
+  </section>
+-->
+  <!-- ================= DEPARTMENTS ================= -->
+
+  <section class="departments">
+
+    <h2 class="section-title">Administrative Departments</h2>
+
+    <div class="department-container">
+
+      <div class="department-card">
+
+        <h3>Da'awah Committee</h3>
+
+        <p>
+          Responsible for Islamic propagation, lectures,
+          outreach programmes and spiritual activities.
+        </p>
+
+      </div>
+
+      <div class="department-card">
+
+        <h3>Media & Publicity</h3>
+
+        <p>
+          Handles photography, graphics, social media
+          management and publicity of programmes.
+        </p>
+
+      </div>
+
+      <div class="department-card">
+
+        <h3>Academic Committee</h3>
+
+        <p>
+          Organizes tutorials, academic seminars and
+          educational development programmes.
+        </p>
+
+      </div>
+
+      <div class="department-card">
+
+        <h3>Welfare Committee</h3>
+
+        <p>
+          Ensures the welfare and wellbeing of Muslim students
+          across different faculties and departments.
+        </p>
+
+      </div>
+      <div class="department-card">
+
+        <h3>Organizing Committee</h3>
+
+        <p>
+          The Organizing Committee is responsible for planning, cordinating, and ensuring
+          the smooth execution of all MSSN programs and activities.THE Committee oversees
+          venue arrangements,logistics,event scheduling,protocol and general programmme Management
+        </p>
+
+      </div>
+      <div class="department-card">
+
+        <h3>Finance Committee</h3>
+
+        <p>
+          The Finance Committee manages the financial affairs of the society.It is responsible
+          for budgeting, fund raising, financial planning,record keeping and ensuring that
+          funds are utilized transparently and responsibly for the for the benefit of the Society
+        </p>
+
+      </div>
+      <div class="department-card">
+
+        <h3>Masjid and timing Committee</h3>
+
+        <p>
+         The Masjid and timing committee oversees the maintenance and proper
+         use of the MSSN Mosque facilities
+        </p>
+
+      </div>
+      <div class="department-card">
+
+        <h3>Junndullah Committee</h3>
+
+        <p>
+          The Jundullah Committee is responsible for maintaining order, discipline and security 
+          during MSSN programs and Activities. The Committee asssists in crowd management, protocol
+          enforcement, and ensuring a peaceful atmosphere at all events
+        </p>
+
+      </div>
+      <div class="department-card">
+
+        <h3>Mu'azzins</h3>
+
+        <p>
+         The Mu'azzins committee is responsible for calling the adhan (call to prayer
+         ).
+        </p>
+
+      </div>
+      <div class="department-card">
+
+        <h3>Secretariat</h3>
+
+        <p>
+         The Secretariat serves as the Administrative and communication hub of the society.
+         it is responsible for Documentation,correspondence,record keeping,meeting minutes, repport preparation
+         , and maintaining official records of MSSN Activities and decisions
+        </p>
+
+      </div>
+
+    </div>
+</div>
+  </section>
+
+  <!-- ================= MESSAGE SECTION ================= -->
+
+  <section class="message">
+
+    <div class="message-box">
+
+      <h2>Message From The Amir</h2>
+
+      <p id="typing-text"></p>
+
+    </div>
+
+  </section>
+
+
+   <button class="donate-btn" onclick="openDonation()">
+
+💚 Donate
+
+</button>
+
+<!-- Donation Popup -->
+
+<div id="donationModal" class="donation-modal">
+
+<div class="donation-content">
+
+<span class="close" onclick="closeDonation()">&times;</span>
+
+<h2>Support MSSN IBBUL</h2>
+
+<p>
+Your donation supports Da'awah activities,
+student welfare and Islamic programmes.
+</p>
+
+<div class="account-box">
+
+
+<p><strong>Bank:</strong>IBBUL-MICROFINANCE</p>
+
+<p><strong>Account Name:</strong></p>
+
+<p>MSSN IBBUL MICROFINANCE</p>
+
+<p><strong>Account Number:</strong>1100005137</p>
+
+</div>
+
+<button class="copy-btn"
+onclick="copyAccount()">
+
+Copy Account Number
+
+</button>
+
+</div>
+
+</div>
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <h2>MSSN IBBUL</h2>
+
+    <p>
+      Muslim Students Society of Nigeria <br>
+      Ibrahim Badamasi Babangida University Chapter
+    </p>
+
+    <p>
+      2025/2026 Administration Session
+    </p>
+
+    <p>
+      © All Rights Reserved
+    </p>
+
+  </footer>
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    // Typing Effect
+
+    const text =
+    "Alhamdulillah, all praise is due to Allah who has guided and sustained us throughout this administrative session. As we progress through the second semester, we remain committed to serving the Muslim students of Ibrahim Badamasi Babangida University through Da'awah, academic excellence, welfare services, and leadership development.This website represents one of our efforts to strengthen communication, preserve our activities, and provide easy access to information about the society. It serves as a platform to showcase our programmes, committees, achievements, and opportunities for student engagement.As we approach the final phase of this administration, we encourage all members to actively participate in our remaining programmes, especially the Da'awah Week activities, humanitarian outreach projects, academic engagements, and spiritual development programmes.We pray that Allah accepts our efforts, blesses our successors, and grants continued growth and success to MSSN IBBUL.Wassalamu Alaikum Warahmatullahi Wabarakatuh.";
+
+    let index = 0;
+
+    function typingEffect(){
+
+      if(index < text.length){
+
+        document.getElementById("typing-text").innerHTML += text.charAt(index);
+
+        index++;
+
+        setTimeout(typingEffect, 40);
+
+      }
+
+    }
+
+    typingEffect();
+
+
+
+
+const executives={
+
+chiefOrganizer:{
+
+post:"Chief Organizer",
+
+name:"Mahmud Abubakar Madaki",
+
+department:"Computer Science",
+
+level:"400 Level",
+
+phone:"07044400164",
+
+address:"Minna, Niger State"
+
+},
+
+amir:{
+
+post:"Amir",
+
+name:"Muhammad Aliyu",
+
+department:"Geology and mining",
+
+level:"400",
+
+phone:"090 6313 9364",
+
+address:"lapai"
+
+},
+
+naIbulAmirAdministration:{
+
+post:"Na'ibul Amir Administration",
+
+name:"Zubairu Jibril",
+
+department:"Geology and mining",
+
+level:"400",
+
+phone:"08144835479",
+
+address:"Minna"
+
+},
+
+naIbulAmirAcademics:{
+
+post:"Na'ibul Amir Academics",
+
+name:"Idris Muhammad Nasir",
+
+department:"Biology",
+
+level:"400",
+
+phone:"07068642596",
+
+address:"lapai"
+
+},
+
+secretary:{
+
+post:"Secretary",
+
+name:"Muhammad Kabir Ibrahim",
+
+department:"Chemistry",
+
+level:"400",
+
+phone:"07061972401",
+
+address:"Minna"
+
+},
+
+DirectorOfFinance:{
+
+post:"Director of Finance",
+
+name:"Hamza Alhassan",
+
+department:"Accounting",
+
+level:"400",
+
+phone:"08148135794",
+
+address:"Minna"
+
+},
+
+chiefDaawah:{
+
+post:"Chief da'awah",
+
+name:"Abdullahi Bello Abdullahi",
+
+department:"Biology",
+
+level:"300",
+
+phone:"08131601236",
+
+address:"Minna"
+
+},
+
+welfare:{
+
+post:"Welfare Director",
+
+name:"Abubakar Sadiq Musa",
+
+department:"Economics",
+
+level:"400",
+
+phone:"09061968725",
+
+address:"Kaduna"
+
+},
+
+amira:{
+
+post:"Amira",
+
+name:"Twayyiba Muhammad Twahir",
+
+department:"Biochemstry",
+
+level:"400",
+
+phone:"0900000000",
+
+address:"Minna"
+
+},
+
+amiraAdministration:{
+
+post:"Amira Administration",
+
+name:"Amina Muhammad Jamil",
+
+department:"Biology EDucation",
+
+level:"400",
+
+phone:"0700000000",
+
+address:"Suleja"
+
+},
+
+sistersSecretary:{
+
+post:"Sisters Secretary",
+
+name:"Zainab Surajudeen",
+
+department:"Chemistry",
+
+level:"400",
+
+phone:"08000000",
+
+address:"suleja"
+
+},
+Treasurer:{
+
+post:"Treasurer",
+
+name:"Fatima zahra Yahaya",
+
+department:"Mass Communication",
+
+level:"400",
+
+phone:"65555555555",
+
+address:"Suleja"
+
+},
+
+sistersDaawah:{
+
+post:"Sisters Daawah",
+
+name:"Khadija Abdullxahi Saba",
+
+department:"Agriculture",
+
+level:"500",
+
+phone:"655785686876",
+
+address:"Minna"
+
+},
+
+SistersOrganizer:{
+
+post:"Sisters Organizer",
+
+name:"Fatima Zahra Abdullahi",
+
+department:"Microbiology",
+
+level:"300",
+
+phone:"655785686876",
+
+address:"Minna"
+
+},
+
+SistersWelfare:{
+
+post:"Sisters Welfare",
+
+name:"Jamila Umar",
+
+department:"Agriculture",
+
+level:"500",
+
+phone:"655785686876",
+
+address:"Minna"
+
+},
+
+amiraAcademics:{
+
+post:"amira Academics",
+
+name:"Fatima Muhammad Tsakpe",
+
+department:"Agriculture",
+
+level:"400",
+
+phone:"655785686876",
+
+address:"Minna"
+
+}
+
+};
+
+function openExecutive(id){
+
+document.getElementById("execPost").innerHTML=executives[id].post;
+
+document.getElementById("execName").innerHTML=executives[id].name;
+
+document.getElementById("execDepartment").innerHTML=executives[id].department;
+
+document.getElementById("execLevel").innerHTML=executives[id].level;
+
+document.getElementById("execPhone").innerHTML=executives[id].phone;
+
+document.getElementById("execAddress").innerHTML=executives[id].address;
+
+document.getElementById("executiveModal").style.display="block";
+
+}
+
+function closeExecutive(){
+
+document.getElementById("executiveModal").style.display="none";
+
+}
+
+window.onclick=function(event){
+
+let modal=document.getElementById("executiveModal");
+
+if(event.target==modal){
+
+modal.style.display="none";
+
+}
+
+}
+
+function openDonation(){
+
+document.getElementById("donationModal").style.display="block";
+
+}
+
+function closeDonation(){
+
+document.getElementById("donationModal").style.display="none";
+
+}
+
+window.onclick=function(event){
+
+let modal=document.getElementById("donationModal");
+
+if(event.target==modal){
+
+modal.style.display="none";
+
+}
+
+}
+
+function copyAccount(){
+
+let account=
+document.getElementById("accountNumber").innerText;
+
+navigator.clipboard.writeText(account);
+
+alert("Account number copied successfully!");
+
+}
+
+
+  </script>
+
+
+<div id="executiveModal" class="modal">
+
+<div class="modal-content">
+
+<span class="close" onclick="closeExecutive()">&times;</span>
+
+<h2 id="execPost"></h2>
+
+<p><strong>Full Name:</strong> <span id="execName"></span></p>
+
+<p><strong>Department:</strong> <span id="execDepartment"></span></p>
+
+<p><strong>Level:</strong> <span id="execLevel"></span></p>
+
+<p><strong>Phone:</strong> <span id="execPhone"></span></p>
+
+<p><strong>Address:</strong> <span id="execAddress"></span></p>
+
+</div>
+
+</div>
+
+
+
+
+</body>
+</html>
