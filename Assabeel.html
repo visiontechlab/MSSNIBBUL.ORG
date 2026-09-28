@@ -1,0 +1,464 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Assabeel Magazine | MSSN IBBUL</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f8fc;
+            color: #172033;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: #063b75;
+            padding: 15px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+        }
+
+        .logo {
+            color: white;
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #8ed8ff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #8ed8ff;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #063b75, #0879b9);
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        .hero .icon {
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 8px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            font-size: 17px;
+            opacity: 0.95;
+        }
+
+        /* MAGAZINE SECTION */
+        .magazine-section {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .magazine-card {
+            background: white;
+            border-radius: 18px;
+            padding: 35px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        /* COVER */
+        .cover {
+            text-align: center;
+        }
+
+        .cover-box {
+            width: 100%;
+            max-width: 300px;
+            height: 410px;
+            margin: auto;
+            border-radius: 12px;
+            background: linear-gradient(145deg, #063b75, #0b8ac4);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 25px;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+        }
+
+        .cover-box .arabic {
+            font-size: 42px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .cover-box h2 {
+            font-size: 30px;
+            letter-spacing: 2px;
+        }
+
+        .cover-box p {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        /* CONTENT */
+        .content h2 {
+            color: #063b75;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .edition {
+            display: inline-block;
+            background: #e7f5ff;
+            color: #066ba8;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .content p {
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn {
+            border: none;
+            padding: 13px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .read-btn {
+            background: #063b75;
+            color: white;
+        }
+
+        .download-btn {
+            background: #0b8ac4;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+
+        /* INFO */
+        .info-section {
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+
+        .info-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .info-box h3 {
+            color: #063b75;
+            margin-bottom: 15px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .feature {
+            background: #f1f8fd;
+            padding: 18px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .feature span {
+            font-size: 28px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #063b75;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 14px;
+            margin: 4px 0;
+        }
+
+        /* MOBILE */
+        @media (max-width: 750px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 55px 20px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .magazine-card {
+                grid-template-columns: 1fr;
+                padding: 25px 20px;
+            }
+
+            .cover-box {
+                height: 390px;
+            }
+
+            .content h2 {
+                font-size: 26px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                text-align: center;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+
+        <div class="logo">
+            MSSN <span>IBBUL</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="administration.html">Administration</a></li>
+            <li><a href="programmes.html">Programmes</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+           <li> <a href="Programms.html">Programmes</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="icon">📰</div>
+
+        <h1>Assabeel Magazine</h1>
+
+        <p>
+            The official digital magazine of the Muslim Students Society
+            of Nigeria, IBBUL Branch.
+        </p>
+
+    </section>
+
+
+    <!-- MAGAZINE -->
+    <section class="magazine-section">
+
+        <div class="magazine-card">
+
+            <!-- COVER -->
+            <div class="cover">
+
+                <div class="cover-box">
+
+                    <div class="arabic">
+                        السبيل
+                    </div>
+
+                    <h2>ASSABEEL</h2>
+
+                    <p>
+                        MSSN IBBUL Branch
+                    </p>
+
+                    <p>
+                        2025/2026 Administration
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTENT -->
+            <div class="content">
+
+                <span class="edition">
+                    2025/2026 EDITION
+                </span>
+
+                <h2>
+                    Assabeel Magazine
+                </h2>
+
+                <p>
+                    Explore the latest edition of Assabeel Magazine,
+                    featuring Islamic reflections, articles, activities,
+                    programmes, achievements and memorable moments from
+                    MSSN IBBUL.
+                </p>
+
+                <div class="buttons">
+
+                    <!-- READ -->
+                    <a
+                        href="https://drive.google.com/file/d/1P_vTydFyX7RJZAFi-DWEYB1Wx80msnbE/view?usp=drivesdk"
+                        target="_blank"
+                        class="btn read-btn">
+                        📖 Read Magazine
+                    </a>
+
+
+                    <!-- DOWNLOAD -->
+                    <a
+                        href="https://drive.google.com/uc?export=download&id=1P_vTydFyX7RJZAFi-DWEYB1Wx80msnbE"
+                        target="_blank"
+                        class="btn download-btn">
+                        ⬇️ Download PDF
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- INFORMATION -->
+    <section class="info-section">
+
+        <div class="info-box">
+
+            <h3>Inside Assabeel</h3>
+
+            <p>
+                Assabeel captures the activities, ideas, Islamic
+                reflections and memorable moments of MSSN IBBUL.
+            </p>
+
+            <div class="features">
+
+                <div class="feature">
+                    <span>🕌</span>
+                    Islamic Articles
+                </div>
+
+                <div class="feature">
+                    <span>🎓</span>
+                    Academic Activities
+                </div>
+
+                <div class="feature">
+                    <span>🤝</span>
+                    MSSN Activities
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2025/2026 MSSN IBBUL Branch
+        </p>
+
+        <p>
+            Muslim Students Society of Nigeria
+        </p>
+
+        <p>
+            Built with care for MSSN IBBUL
+        </p>
+
+    </footer>
+
+</body>
+</html>
